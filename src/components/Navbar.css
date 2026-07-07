@@ -1,0 +1,38 @@
+/* Custom Toast Notification */
+.download-toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background-color: #1e1e24; /* Change based on your light/dark theme variables */
+  color: #ffffff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-family: sans-serif;
+  font-size: 0.9rem;
+  z-index: 1000;
+  
+  /* Hidden state details */
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+
+/* Shown State */
+.download-toast.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.toast-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.toast-icon {
+  flex-shrink: 0;
+}

@@ -1,0 +1,310 @@
+/* Style for the count inside the tag */
+.skill-tag .metric-count {
+  margin-left: 6px;
+  font-weight: 700;
+  color: #d97706; /* Matches your gold theme */
+}
+
+.dark .skill-tag .metric-count, 
+[data-theme='dark'] .skill-tag .metric-count {
+  color: #fbbf24;
+}
+
+/* Ensure the fallback tag stands out nicely */
+.dynamic-fallback-tag {
+  border-style: dashed !important;
+  font-style: italic;
+  color: #0d9488 !important;
+}
+
+
+
+
+
+/* Utility Colors mapping */
+.text-teal { color: #0d9488 !important; }
+.text-gold { color: #d97706 !important; }
+.dark .text-teal, [data-theme='dark'] .text-teal { color: #2dd4bf !important; }
+.dark .text-gold, [data-theme='dark'] .text-gold { color: #fbbf24 !important; }
+
+/* Profile Image Setup */
+.profile-image-container {
+  position: relative;
+  width: 240px;
+  height: 240px;
+  margin: 1.5rem auto;
+}
+
+.image-wrapper {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #0d9488;
+  box-shadow: 0 10px 30px var(--about-shadow);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.dark .image-wrapper, [data-theme='dark'] .image-wrapper {
+  border-color: #2dd4bf;
+}
+
+.profile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%);
+  transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+.profile-image-container:hover .profile-img {
+  filter: grayscale(0%);
+  transform: scale(1.05);
+}
+
+/* ==========================================
+   3. Floating Glass Badge Configurations
+   ========================================== */
+.floating-badge {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  background: var(--badge-bg-default);
+  backdrop-filter: blur(8px);            
+  -webkit-backdrop-filter: blur(8px);    
+  border: 1px solid var(--badge-border-default); 
+  border-radius: 50%;                    
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 32px 0 var(--about-shadow);
+  pointer-events: none; 
+  z-index: 10;
+}
+
+.badge-cf { top: -15px; left: -15px; background: rgba(219, 110, 32, 0.08); border-color: rgba(219, 110, 32, 0.3); animation: floatPath1 6s ease-in-out infinite; }
+.badge-git { top: 35px; right: -35px; color: var(--badge-text-git); animation: floatPath2 7s ease-in-out infinite; }
+.badge-java { bottom: 20px; right: -20px; color: #f89820; background: rgba(248, 152, 32, 0.08); border-color: rgba(248, 152, 32, 0.3); animation: floatPath3 5s ease-in-out infinite; }
+.badge-spring { bottom: -15px; left: 15px; color: #6db33f; background: rgba(109, 179, 63, 0.08); border-color: rgba(109, 179, 63, 0.3); animation: floatPath4 8s ease-in-out infinite; }
+.badge-react { top: -20px; right: 10px; color: #00a3c4; background: rgba(0, 163, 196, 0.08); border-color: rgba(0, 163, 196, 0.3); animation: floatPath1 5.5s ease-in-out infinite reverse; }
+.badge-linkedin { top: 115px; left: -45px; color: #0077b5; background: rgba(0, 119, 181, 0.08); border-color: rgba(0, 119, 181, 0.3); animation: floatPath2 6.5s ease-in-out infinite reverse; }
+
+.clickable-badge { pointer-events: auto !important; cursor: pointer; }
+
+/* Floating Glassmorphic Quotes (Drifting slowly) */
+.floating-quote-box {
+  position: absolute;
+  background: var(--about-card-bg);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--about-border);
+  border-radius: 8px;
+  padding: 0.4rem 0.8rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--about-text-main);
+  box-shadow: 0 8px 32px 0 var(--about-shadow);
+  pointer-events: none;
+  z-index: 15;
+  white-space: nowrap;
+}
+
+.fqb-1 {
+  top: 195px;
+  right: -95px;
+  animation: floatSlow1 11s ease-in-out infinite;
+}
+
+.fqb-2 {
+  bottom: 195px;
+  left: -95px;
+  animation: floatSlow2 13s ease-in-out infinite;
+}
+
+@keyframes floatSlow1 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(8px, -15px) rotate(4deg); }
+}
+
+@keyframes floatSlow2 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(-10px, 12px) rotate(-4deg); }
+}
+
+/* ========================================== */
+
+@keyframes floatPath1 { 0%, 100% { transform: translate(0, 0) rotate(0deg); } 50% { transform: translate(6px, -8px) rotate(5deg); } }
+@keyframes floatPath2 { 0%, 100% { transform: translate(0, 0) rotate(0deg); } 50% { transform: translate(-8px, 6px) rotate(-6deg); } }
+@keyframes floatPath3 { 0%, 100% { transform: translate(0, 0) rotate(0deg); } 50% { transform: translate(-5px, -10px) rotate(4deg); } }
+@keyframes floatPath4 { 0%, 100% { transform: translate(0, 0) rotate(0deg); } 50% { transform: translate(8px, 5px) rotate(-3deg); } }
+
+/* ==========================================
+   4. Transparent Glass Cards Structural Rule
+   ========================================== */
+.premium-card.transparent-glass {
+  background: var(--about-card-bg) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--about-border) !important;
+  border-radius: 16px;
+  padding: 1.75rem;
+  box-shadow: 0 8px 32px 0 var(--about-shadow);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.premium-card.transparent-glass h3,
+.premium-card.transparent-glass h4 {
+  color: var(--about-text-main) !important;
+  margin-top: 0;
+}
+
+.premium-card.transparent-glass p {
+  color: var(--about-text-desc) !important;
+}
+
+.bio-quote {
+  font-style: italic;
+  border-left: 3px solid #0d9488;
+  padding-left: 1rem;
+  margin: 1.2rem 0;
+  color: var(--about-text-muted);
+}
+.dark .bio-quote { border-left-color: #2dd4bf; }
+
+.about-details .detail-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  border-bottom: 1px dashed var(--about-border);
+  padding: 0.5rem 0;
+}
+
+/* Skill Tags Styles */
+.skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+.skill-tag {
+  background-color: var(--about-card-bg);
+  color: var(--about-text-main);
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  border: 1px solid var(--about-border);
+}
+
+/* CP Metrics Blocks */
+.metrics-grid { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+.metric-tag {
+  display: flex;
+  align-items: center;
+  background: var(--about-card-bg);
+  border: 1px solid var(--about-border);
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 0.8rem;
+}
+.metric-name { color: var(--about-text-desc); margin-right: 6px; }
+.metric-count { color: #d97706; font-weight: 700; }
+.dark .metric-count { color: #fbbf24; }
+
+.dynamic-fallback-tag .metric-name {
+  color: #0d9488;
+  font-style: italic;
+}
+.dark .dynamic-fallback-tag .metric-name { color: #2dd4bf; }
+
+@media (max-width: 992px) {
+  .about-grid { grid-template-columns: 1fr; }
+}
+
+/* ==========================================
+   Refined About Section Styles
+   ========================================== */
+
+/* Glass Card Structural Rule */
+.premium-card.transparent-glass {
+  background: var(--about-card-bg) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--about-border) !important;
+  border-radius: 16px;
+  padding: 1.75rem;
+  box-shadow: 0 8px 32px 0 var(--about-shadow);
+  /* smooth hover transition */
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.premium-card.transparent-glass:hover {
+  transform: translateY(-5px);
+  border-color: #0d9488 !important;
+}
+
+/* Text Visibility Fixes */
+.premium-card.transparent-glass h3,
+.premium-card.transparent-glass h4 {
+  color: var(--about-text-main) !important;
+  margin-top: 0;
+}
+
+.premium-card.transparent-glass p {
+  color: var(--about-text-desc) !important;
+  line-height: 1.6;
+}
+
+/* Light/Dark mode specific text adjustments */
+.about-details .detail-item {
+  color: var(--about-text-main);
+  border-bottom: 1px dashed var(--about-border);
+  padding: 0.5rem 0;
+}
+
+/* Skill Tags Styles */
+.skill-tag {
+  background-color: var(--about-card-bg);
+  color: var(--about-text-main);
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  border: 1px solid var(--about-border);
+  transition: all 0.3s ease;
+}
+
+/* Skill Tag Hover */
+.skill-tag:hover {
+  background-color: #0d9488;
+  color: #ffffff;
+  border-color: #0d9488;
+}
+
+/* CP Metrics Blocks */
+.metric-tag {
+  display: flex;
+  align-items: center;
+  background: var(--about-card-bg);
+  border: 1px solid var(--about-border);
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 0.8rem;
+  transition: all 0.3s ease;
+}
+
+.metric-name { color: var(--about-text-desc); }
+.metric-count { color: #d97706; font-weight: 700; }
+
+/* Fixed Badge Logic */
+.floating-badge {
+  background: var(--about-card-bg); /* Ensuring it picks the active theme bg */
+  transition: all 0.5s ease;
+}
+
+/* Profile Image Hover Smooth */
+.profile-img {
+  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* Bio Quote */
+.bio-quote {
+  font-style: italic;
+  border-left: 3px solid #0d9488;
+  padding-left: 1rem;
+  margin: 1.2rem 0;
+  color: var(--about-text-muted);
+}
+

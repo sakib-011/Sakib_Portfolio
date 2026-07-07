@@ -1,0 +1,345 @@
+/* ContactForm.css */
+
+.contact-section {
+  position: relative;
+  padding: 6rem 2rem;
+  background-color: var(--bg-primary, #0b0f19);
+  overflow: hidden;
+}
+
+/* Background Glowing Neon Orbs */
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.15;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.orb-1 {
+  top: 10%;
+  left: 5%;
+  width: 300px;
+  height: 300px;
+  background: var(--accent-teal, #06b6d4);
+}
+
+.orb-2 {
+  bottom: 10%;
+  right: 5%;
+  width: 350px;
+  height: 350px;
+  background: var(--accent-gold, #f59e0b);
+}
+
+/* Floating Background Logos */
+.bg-floating-logo {
+  position: absolute;
+  font-family: var(--font-mono, monospace);
+  font-size: 8rem;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.02);
+  user-select: none;
+  z-index: 1;
+}
+
+.bg-logo-left {
+  top: 20%;
+  left: -2%;
+  transform: rotate(-15deg);
+}
+
+.bg-logo-right {
+  bottom: 15%;
+  right: -2%;
+  transform: rotate(25deg);
+}
+
+/* Container Structure */
+.contact-main-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.contact-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--text-primary, #f8fafc);
+  margin-bottom: 1rem;
+}
+
+/* Welcome Glass Card & Typing Style */
+.welcome-glass-card {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.6rem 1.5rem;
+  border-radius: 9999px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.dynamic-greeting {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--accent-teal, #06b6d4);
+  margin: 0;
+  animation: fadeInOut 5s infinite;
+}
+
+/* Fixed Multi-stage Keyframe syntax */
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(5px); }
+  5% { opacity: 1; transform: translateY(0); }
+  95% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(5px); }
+}
+
+/* Grid Layout */
+.contact-grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+/* Glass Morphism Base Styling */
+.glass-morphism {
+  background: rgba(30, 41, 59, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.1));
+  border-radius: 16px;
+  padding: 2.5rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+/* Floating Gmail Badge Inside Card */
+.floating-card.gmail-float {
+  position: absolute;
+  top: -25px;
+  right: 25px;
+  background: #1e293b;
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  box-shadow: 0 10px 25px rgba(6, 182, 212, 0.15);
+  z-index: 5;
+}
+
+.text-gmail {
+  color: #ea4335;
+}
+
+.floating-text {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.float-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #f8fafc;
+}
+
+.float-status {
+  font-size: 0.65rem;
+  color: #10b981;
+  font-weight: 600;
+}
+
+/* Info Cards & Icons */
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary, #f8fafc);
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.info-desc {
+  color: var(--text-secondary, #94a3b8);
+  line-height: 1.6;
+  font-size: 0.95rem;
+  text-align: left;
+  margin-bottom: 2rem;
+}
+
+.glass-item {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-top: 1.2rem;
+  background: rgba(255, 255, 255, 0.02);
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: transform 0.2s ease;
+}
+
+.glass-item:hover {
+  transform: translateX(4px);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.icon-teal { background: rgba(6, 182, 212, 0.1); color: var(--accent-teal, #06b6d4); }
+.icon-gold { background: rgba(245, 158, 11, 0.1); color: var(--accent-gold, #f59e0b); }
+.icon-emerald { background: rgba(16, 185, 129, 0.1); color: #10b981; }
+
+.info-text {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.info-label {
+  font-size: 0.75rem;
+  color: var(--text-muted, #64748b);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.info-value {
+  font-size: 0.95rem;
+  color: var(--text-primary, #f8fafc);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a.info-value:hover {
+  color: var(--accent-teal, #06b6d4);
+}
+
+/* Form Styles Layout */
+.contact-form-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  text-align: left;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.modern-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-secondary, #94a3b8);
+}
+
+.modern-input {
+  width: 100%;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.1));
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  color: var(--text-primary, #f8fafc);
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.modern-input:focus {
+  outline: none;
+  border-color: var(--accent-teal, #06b6d4);
+  box-shadow: 0 0 15px rgba(6, 182, 212, 0.15);
+}
+
+.form-error {
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.1);
+  padding: 0.75rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+/* Success Card Block */
+.submit-success {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.submit-success h4 {
+  color: #10b981;
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.submit-success p {
+  color: var(--text-secondary, #94a3b8);
+  margin-bottom: 1.5rem;
+}
+
+/* EXACT DEAD CENTER ABSOLUTE/FLEX ACTION BAR & BUTTON */
+.form-actions-absolute-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.form-submit-btn {
+  background: transparent;
+  color: var(--accent-teal, #06b6d4);
+  border: 1.5px solid var(--accent-teal, #06b6d4);
+  padding: 0.75rem 2.5rem;
+  border-radius: 9999px; /* Pill shape design */
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.form-submit-btn:hover:not(:disabled) {
+  background: rgba(6, 182, 212, 0.1);
+}
+
+
+
+
+/* Responsive Grid Design */
+@media (max-width: 900px) {
+  .contact-grid-container {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+  }
+  
+  .floating-card.gmail-float {
+    position: static;
+    margin-bottom: 1.5rem;
+    display: inline-flex;
+  }
+}

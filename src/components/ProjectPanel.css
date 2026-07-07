@@ -1,0 +1,1006 @@
+
+
+.section-title {
+  text-align: center;
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: var(--text-muted);
+  max-width: 580px;
+  margin: 0 auto 3.5rem auto;
+  font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   2. macOS Style 3D Curved Circular Carousel
+   ========================================================================== */
+.carousel-view-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  max-width: 1050px;
+  margin: 0 auto;
+  perspective: 1000px; /* Gives 3D depth tilt effect */
+}
+
+.carousel-track-3d {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 440px;
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.project-card-3d {
+  position: absolute;
+  width: 320px;
+  height: 390px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 20px;
+  padding: 1.25rem;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s, filter 0.6s;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Layout curves mappings */
+.project-card-3d.center {
+  transform: translate3d(0, 0, 100px) rotateY(0deg);
+  opacity: 1;
+  z-index: 10;
+  filter: blur(0px);
+}
+
+.project-card-3d.left-curve {
+  transform: translate3d(-290px, 0, -40px) rotateY(24deg);
+  opacity: 0.6;
+  z-index: 5;
+  filter: blur(1px);
+}
+
+.project-card-3d.right-curve {
+  transform: translate3d(290px, 0, -40px) rotateY(-24deg);
+  opacity: 0.6;
+  z-index: 5;
+  filter: blur(1px);
+}
+
+.project-card-3d.hidden {
+  transform: translate3d(0, 0, -200px);
+  opacity: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.card-mock-media {
+  width: 100%;
+  height: 150px;
+  background: linear-gradient(135deg, #0d9488 0%, #2563eb 100%);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.media-abstract-icon {
+  font-size: 2.5rem;
+}
+
+.card-meta {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-subtitle {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #0d9488;
+  letter-spacing: 0.05em;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 0.25rem 0;
+}
+
+.card-short-desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+  margin-bottom: auto;
+}
+
+.card-tags-strip {
+  display: flex;
+  gap: 0.4rem;
+  margin-top: 0.75rem;
+}
+
+.mini-tag {
+  background: var(--bg-tag);
+  color: var(--text-main);
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.nav-arrow {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  color: var(--text-main);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  position: absolute;
+  z-index: 20;
+  transition: transform 0.2s;
+}
+
+.nav-arrow:hover { transform: scale(1.08); }
+.nav-arrow.left { left: -15px; }
+.nav-arrow.right { right: -15px; }
+
+.carousel-circles {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.circle-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--border-card);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.circle-dot.active {
+  background: #0d9488;
+  width: 18px;
+  border-radius: 4px;
+}
+
+/* ==========================================================================
+   3. Deep Dive Presentation Layout (Bento Adaptive Frame)
+   ========================================================================== */
+.deep-dive-stage {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.deep-dive-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.back-btn {
+  display: flex;
+  align-items: center;
+  background: transparent;
+  border: none;
+  color: #0d9488;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+
+
+/* Browser Mock Window frame */
+.deep-dive-hero-frame {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+  margin-bottom: 1.5rem;
+}
+
+.screen-frame-header {
+  background: var(--bg-tag);
+  padding: 0.6rem 1rem;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--border-card);
+}
+
+.frame-circles { display: flex; gap: 0.4rem; }
+.frame-dot { width: 10px; height: 10px; border-radius: 50%; }
+.frame-red { background: #ef4444; cursor: pointer; }
+.frame-yellow { background: #f59e0b; }
+.frame-green { background: #10b981; }
+
+.frame-address-bar {
+  margin-left: 1.5rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  background: var(--bg-card);
+  padding: 0.2rem 1.5rem;
+  border-radius: 6px;
+  width: 100%;
+  max-width: 350px;
+}
+
+.hero-video-wrapper {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  background: #000;
+}
+
+.hero-video-wrapper video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.floating-play-pause {
+  position: absolute;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: #fff;
+  padding: 0.45rem 0.85rem;
+  border-radius: 6px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Asymmetrical Bento Structural Grid system */
+.bento-layout-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 1.25rem;
+}
+
+.bento-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 14px;
+  padding: 1.5rem;
+}
+
+.structural-challenges-box {
+  grid-column: span 2;
+  border-left: 4px solid #0d9488;
+}
+
+.bento-box-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 0 0 0.75rem 0;
+}
+
+.bento-box-text {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.sub-box-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 1.25rem 0 0.5rem 0;
+}
+
+.bento-bullet-list {
+  padding-left: 1.1rem;
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+.bento-bullet-list li { margin-bottom: 0.4rem; line-height: 1.4; }
+
+/* Bento tab selectors */
+.bento-tabs-header {
+  display: flex;
+  gap: 1rem;
+  border-bottom: 1px solid var(--border-card);
+  margin-bottom: 1rem;
+}
+
+.bento-tab-btn {
+  background: transparent;
+  border: none;
+  padding-bottom: 0.5rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  position: relative;
+}
+
+.bento-tab-btn.active { color: #0d9488; }
+.bento-tab-btn.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #0d9488;
+}
+
+.bento-swatch-strip {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.75rem;
+}
+
+.bento-swatch-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.swatch-color {
+  width: 45px;
+  height: 25px;
+  border-radius: 4px;
+  border: 1px solid var(--border-card);
+}
+
+.swatch-lbl {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  margin-top: 0.2rem;
+}
+
+.inline-code-accent {
+  background: rgba(13, 148, 136, 0.1);
+  color: #0d9488;
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 0.8rem;
+}
+
+.bento-terminal-mock {
+  background: #090d16;
+  padding: 0.85rem;
+  border-radius: 8px;
+  margin-top: 0.75rem;
+}
+
+.bento-terminal-mock pre {
+  margin: 0;
+  color: #a7f3d0;
+  font-size: 0.75rem;
+  font-family: monospace;
+}
+
+.challenge-quote-text {
+  font-style: italic;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text-main);
+  margin: 0;
+}
+
+.tags-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.75rem;
+}
+
+.tech-badge {
+  background: var(--bg-tag);
+  color: var(--text-main);
+  padding: 0.25rem 0.65rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border: 1px solid var(--border-card);
+}
+
+/* Animations */
+.animate-fade-in {
+  animation: fadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .bento-layout-grid { grid-template-columns: 1fr; }
+  .structural-challenges-box { grid-column: span 1; }
+  .carousel-track-3d { height: 370px; }
+  .project-card-3d { width: 260px; height: 340px; }
+  .project-card-3d.left-curve { transform: translate3d(-170px, 0, -60px) rotateY(20deg); }
+  .project-card-3d.right-curve { transform: translate3d(170px, 0, -60px) rotateY(-20deg); }
+}
+/* ==========================================================================
+   GitHub Marquee Section (Full Screen Edge-to-Edge)
+   ========================================================================== */
+
+.github-marquee-section {
+  margin-top: 80px;
+  padding-top: 60px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  
+  /* মেইন কন্টেইনারের উইডথ লিমিট ভেঙে ফুল স্ক্রিন করার জন্য */
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+/* টেক্সট ও লোডিং স্টেটকে স্ক্রিনের সেন্টারে রাখার জন্য */
+.gh-section-title,
+.gh-section-subtitle,
+.gh-loading {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.gh-section-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.gh-section-subtitle {
+  font-size: 1rem;
+  color: #64748b;
+  margin-bottom: 40px;
+}
+
+.gh-loading {
+  color: #38bdf8;
+  font-family: 'JetBrains Mono', monospace;
+  padding: 40px;
+}
+
+/* Marquee Track & Container */
+.marquee-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  padding: 20px 0;
+}
+
+.marquee-track {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+}
+
+.marquee-content {
+  display: flex;
+  gap: 20px;
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   GitHub Repo Card Styles
+   ========================================================================== */
+
+.gh-repo-card {
+  background: rgba(30, 41, 59, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 20px;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+  min-width: 280px;
+  max-width: 280px;
+  height: 170px;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+  cursor: pointer;
+}
+
+.gh-repo-card:hover {
+  border-color: #38bdf8;
+  transform: scale(1.02) translateY(-2px);
+  box-shadow: 0 8px 20px rgba(56, 189, 248, 0.06);
+}
+
+/* Card Elements */
+.gh-repo-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #94a3b8;
+  margin-bottom: 12px;
+}
+
+.gh-icon {
+  opacity: 0.8;
+}
+
+.gh-repo-stars {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #f59e0b;
+}
+
+.gh-repo-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 6px 0;
+  color: #f1f5f9;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.gh-repo-desc {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  line-height: 1.4;
+  margin-bottom: 12px;
+  flex-grow: 1;
+  white-space: normal;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.gh-repo-footer {
+  display: flex;
+  gap: 14px;
+  font-size: 0.75rem;
+  color: #64748b;
+  align-items: center;
+}
+
+.gh-repo-lang {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #94a3b8;
+}
+
+.lang-dot {
+  width: 7px;
+  height: 7px;
+  background-color: #38bdf8;
+  border-radius: 50%;
+}
+
+.gh-repo-forks {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* ==========================================================================
+   Animations & Controls
+   ========================================================================== */
+
+/* প্রথম লাইন বামে যাবে */
+.track-left .marquee-content {
+  animation: scroll-left 40s linear infinite;
+}
+
+/* দ্বিতীয় লাইন ডানে যাবে */
+.track-right .marquee-content {
+  animation: scroll-right 40s linear infinite;
+}
+
+/* মাউস রাখলে স্লাইড থিমে যাবে */
+.marquee-track:hover .marquee-content {
+  animation-play-state: paused;
+}
+
+/* Infinite Loop Keyframes */
+@keyframes scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes scroll-right {2026-07-08 01:26:10.034 [info] [main] Log level: Info
+2026-07-08 01:26:10.034 [info] [main] Validating found git in: "git"
+2026-07-08 01:26:10.034 [info] [main] Using git "2.53.0" from "git"
+2026-07-08 01:26:10.034 [info] [Model][doInitialScan] Initial repository scan started
+2026-07-08 01:26:10.034 [info] > git rev-parse --show-toplevel [67ms]
+2026-07-08 01:26:10.034 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 01:26:10.034 [info] > git rev-parse --show-toplevel [13ms]
+2026-07-08 01:26:10.034 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 01:26:10.036 [info] > git rev-parse --show-toplevel [4ms]
+2026-07-08 01:26:10.036 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 01:26:10.048 [info] > git rev-parse --show-toplevel [2ms]
+2026-07-08 01:26:10.048 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 01:26:10.057 [info] > git rev-parse --show-toplevel [2ms]
+2026-07-08 01:26:10.057 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 01:26:10.074 [info] > git rev-parse --show-toplevel [9ms]
+2026-07-08 01:26:10.074 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 01:26:10.084 [info] > git rev-parse --show-toplevel [2ms]
+2026-07-08 01:26:10.084 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 01:26:10.086 [info] [Model][doInitialScan] Initial repository scan completed - repositories (0), closed repositories (0), parent repositories (0), unsafe repositories (0)
+2026-07-08 01:26:11.025 [info] > git rev-parse --show-toplevel [50ms]
+2026-07-08 01:26:11.025 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 01:26:11.055 [info] > git rev-parse --show-toplevel [13ms]
+2026-07-08 01:26:11.056 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 01:26:11.073 [info] > git rev-parse --show-toplevel [4ms]
+2026-07-08 01:26:11.074 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 01:26:11.162 [info] > git rev-parse --show-toplevel [2ms]
+2026-07-08 01:26:11.162 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 01:26:11.397 [info] > git rev-parse --show-toplevel [2ms]
+2026-07-08 01:26:11.397 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 01:26:13.089 [info] > git rev-parse --show-toplevel [10ms]
+2026-07-08 01:26:13.089 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 01:26:13.090 [info] > git rev-parse --show-toplevel [1ms]
+2026-07-08 01:26:13.090 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 01:27:55.326 [info] > git rev-parse --show-toplevel [18ms]
+2026-07-08 01:27:55.326 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 01:29:14.842 [info] > git rev-parse --show-toplevel [3ms]
+2026-07-08 01:29:14.842 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 01:29:48.474 [info] > git rev-parse --show-toplevel [6ms]
+2026-07-08 01:29:48.474 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 01:29:58.089 [info] > git rev-parse --show-toplevel [4ms]
+2026-07-08 01:29:58.089 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 01:30:08.184 [info] > git rev-parse --show-toplevel [3ms]
+2026-07-08 01:30:08.184 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 01:30:46.554 [info] > git rev-parse --show-toplevel [4ms]
+2026-07-08 01:30:46.554 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 01:34:04.159 [info] > git rev-parse --show-toplevel [2ms]
+2026-07-08 01:34:04.159 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 01:34:30.747 [info] > git rev-parse --show-toplevel [4ms]
+2026-07-08 01:34:30.747 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 01:35:05.400 [info] > git rev-parse --show-toplevel [3ms]
+2026-07-08 01:35:05.400 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 01:40:43.868 [info] > git rev-parse --show-toplevel [2ms]
+2026-07-08 01:40:43.868 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 01:40:44.737 [info] > git rev-parse --show-toplevel [4ms]
+2026-07-08 01:40:44.737 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 01:43:50.618 [info] > git rev-parse --show-toplevel [3ms]
+2026-07-08 01:43:50.618 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 01:44:54.279 [info] > git rev-parse --show-toplevel [3ms]
+2026-07-08 01:44:54.279 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 01:45:09.429 [info] > git rev-parse --show-toplevel [4ms]
+2026-07-08 01:45:09.429 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 01:46:42.288 [info] > git rev-parse --show-toplevel [3ms]
+2026-07-08 01:46:42.288 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 01:47:15.421 [info] > git rev-parse --show-toplevel [4ms]
+2026-07-08 01:47:15.421 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 01:47:33.452 [info] > git rev-parse --show-toplevel [4ms]
+2026-07-08 01:47:33.452 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 01:50:20.973 [info] > git rev-parse --show-toplevel [2ms]
+2026-07-08 01:50:20.973 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 01:50:36.696 [info] > git rev-parse --show-toplevel [3ms]
+2026-07-08 01:50:36.696 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 01:56:32.697 [info] > git rev-parse --show-toplevel [3ms]
+2026-07-08 01:56:32.697 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 01:59:37.862 [info] > git rev-parse --show-toplevel [34ms]
+2026-07-08 01:59:37.862 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 02:04:08.233 [info] > git rev-parse --show-toplevel [5ms]
+2026-07-08 02:04:08.233 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 02:04:42.212 [info] > git rev-parse --show-toplevel [4ms]
+2026-07-08 02:04:42.212 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 02:07:43.987 [info] > git rev-parse --show-toplevel [2ms]
+2026-07-08 02:07:43.987 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 02:16:33.324 [info] > git rev-parse --show-toplevel [2ms]
+2026-07-08 02:16:33.324 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 02:16:37.366 [info] > git rev-parse --show-toplevel [3ms]
+2026-07-08 02:16:37.366 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 02:21:14.560 [info] > git rev-parse --show-toplevel [2ms]
+2026-07-08 02:21:14.560 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 02:25:53.565 [info] > git rev-parse --show-toplevel [2ms]
+2026-07-08 02:25:53.565 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 02:26:14.145 [info] > git rev-parse --show-toplevel [4ms]
+2026-07-08 02:26:14.145 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 02:26:26.446 [info] > git rev-parse --show-toplevel [3ms]
+2026-07-08 02:26:26.446 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 02:28:22.780 [info] > git rev-parse --show-toplevel [5ms]
+2026-07-08 02:28:22.780 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 02:28:34.135 [info] > git rev-parse --show-toplevel [8ms]
+2026-07-08 02:28:34.135 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 02:29:22.393 [info] > git rev-parse --show-toplevel [5ms]
+2026-07-08 02:29:22.393 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 02:33:00.528 [info] > git rev-parse --show-toplevel [3ms]
+2026-07-08 02:33:00.529 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 02:33:19.874 [info] > git rev-parse --show-toplevel [3ms]
+2026-07-08 02:33:19.874 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 02:43:48.697 [info] > git rev-parse --show-toplevel [3ms]
+2026-07-08 02:43:48.697 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 02:44:05.527 [info] > git rev-parse --show-toplevel [5ms]
+2026-07-08 02:44:05.527 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 02:44:33.930 [info] > git rev-parse --show-toplevel [3ms]
+2026-07-08 02:44:33.930 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 02:56:08.004 [info] > git rev-parse --show-toplevel [4ms]
+2026-07-08 02:56:08.004 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 02:58:13.714 [info] > git rev-parse --show-toplevel [3ms]
+2026-07-08 02:58:13.714 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 02:58:17.037 [info] > git rev-parse --show-toplevel [5ms]
+2026-07-08 02:58:17.037 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 03:02:31.474 [info] > git rev-parse --show-toplevel [4ms]
+2026-07-08 03:02:31.474 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 03:02:40.296 [info] > git rev-parse --show-toplevel [3ms]
+2026-07-08 03:02:40.296 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 03:02:41.050 [info] > git rev-parse --show-toplevel [4ms]
+2026-07-08 03:02:41.050 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 03:02:59.624 [info] > git rev-parse --show-toplevel [3ms]
+2026-07-08 03:02:59.624 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 03:04:20.502 [info] > git rev-parse --show-toplevel [2ms]
+2026-07-08 03:04:20.502 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 03:04:21.168 [info] > git rev-parse --show-toplevel [3ms]
+2026-07-08 03:04:21.168 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 03:05:24.834 [info] > git rev-parse --show-toplevel [4ms]
+2026-07-08 03:05:24.834 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 03:07:15.092 [info] > git rev-parse --show-toplevel [3ms]
+2026-07-08 03:07:15.092 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 03:13:32.031 [info] > git rev-parse --show-toplevel [17ms]
+2026-07-08 03:13:32.031 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 03:14:19.612 [info] > git rev-parse --show-toplevel [2ms]
+2026-07-08 03:14:19.612 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 03:17:24.168 [info] > git rev-parse --show-toplevel [1ms]
+2026-07-08 03:17:24.169 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 03:17:57.251 [info] > git rev-parse --show-toplevel [5ms]
+2026-07-08 03:17:57.251 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 03:20:03.322 [info] > git rev-parse --show-toplevel [5ms]
+2026-07-08 03:20:03.322 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 03:23:52.413 [info] > git rev-parse --show-toplevel [3ms]
+2026-07-08 03:23:52.413 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 03:25:52.011 [info] > git rev-parse --show-toplevel [3ms]
+2026-07-08 03:25:52.011 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 03:31:38.574 [info] > git rev-parse --show-toplevel [3ms]
+2026-07-08 03:31:38.574 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 03:31:39.393 [info] > git rev-parse --show-toplevel [4ms]
+2026-07-08 03:31:39.393 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 03:34:08.098 [info] > git rev-parse --show-toplevel [2ms]
+2026-07-08 03:34:08.099 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 03:34:26.947 [info] > git rev-parse --show-toplevel [4ms]
+2026-07-08 03:34:26.947 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 03:40:16.631 [info] > git rev-parse --show-toplevel [2ms]
+2026-07-08 03:40:16.631 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 03:45:33.961 [info] > git rev-parse --show-toplevel [1ms]
+2026-07-08 03:45:33.961 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 03:45:34.585 [info] > git rev-parse --show-toplevel [158ms]
+2026-07-08 03:45:34.585 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 03:45:35.416 [info] > git rev-parse --show-toplevel [3ms]
+2026-07-08 03:45:35.416 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 03:45:35.490 [info] > git rev-parse --show-toplevel [2ms]
+2026-07-08 03:45:35.490 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 03:45:38.799 [info] > git rev-parse --show-toplevel [5ms]
+2026-07-08 03:45:38.799 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-07-08 03:45:46.415 [info] > git init -b main [17ms]
+2026-07-08 03:45:46.433 [info] > git rev-parse --show-toplevel [3ms]
+2026-07-08 03:45:46.459 [info] > git rev-parse --git-dir --git-common-dir --show-superproject-working-tree [10ms]
+2026-07-08 03:45:46.481 [info] [Model][openRepository] Opened repository (path): /home/sakib-shourov/IdeaProjects/Portfolio
+2026-07-08 03:45:46.481 [info] [Model][openRepository] Opened repository (real path): /home/sakib-shourov/IdeaProjects/Portfolio
+2026-07-08 03:45:46.481 [info] [Model][openRepository] Opened repository (kind): repository
+2026-07-08 03:45:46.530 [info] > git config --get commit.template [11ms]
+2026-07-08 03:45:46.530 [info] > git config --get --local core.virtualfilesystem [31ms]
+2026-07-08 03:45:46.530 [warning] [Git][config] git config failed: Failed to execute git
+2026-07-08 03:45:46.551 [info] [Git][getRemotes] No remotes found in the git config file
+2026-07-08 03:45:46.553 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [3ms]
+2026-07-08 03:45:46.553 [warning] [Git][getBranch] No such branch: main
+2026-07-08 03:45:46.627 [info] > git status -z -uall [58ms]
+2026-07-08 03:45:46.627 [info] > git for-each-ref --sort -committerdate --format %(refname)%00%(objectname)%00%(*objectname) [43ms]
+2026-07-08 03:45:46.684 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [34ms]
+2026-07-08 03:45:46.684 [warning] [Git][getBranch] No such branch: main
+2026-07-08 03:45:46.685 [error] [GitHistoryProvider][resolveHEADMergeBase] Failed to resolve merge base for main: Error: No such branch: main.
+2026-07-08 03:45:46.688 [info] > git config --get commit.template [4ms]
+2026-07-08 03:45:46.732 [info] [Git][getRemotes] No remotes found in the git config file
+2026-07-08 03:45:46.751 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [19ms]
+2026-07-08 03:45:46.751 [warning] [Git][getBranch] No such branch: main
+2026-07-08 03:45:46.791 [info] > git status -z -uall [27ms]
+2026-07-08 03:45:46.791 [info] > git for-each-ref --sort -committerdate --format %(refname)%00%(objectname)%00%(*objectname) [12ms]
+2026-07-08 03:45:47.025 [info] > git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%D%n%B -z --shortstat --diff-merges=first-parent -n50 --skip=0 --topo-order --decorate=full --stdin [27ms]
+2026-07-08 03:45:47.025 [info] fatal: bad revision 'refs/heads/main'
+2026-07-08 03:45:47.025 [error] [GitHistoryProvider][provideHistoryItems] Failed to get history items with options '{"historyItemRefs":["refs/heads/main"],"limit":50,"skip":0}': Failed to execute git {
+  "exitCode": 128,
+  "gitCommand": "log",
+  "stdout": "",
+  "stderr": "fatal: bad revision 'refs/heads/main'\n"
+}
+2026-07-08 03:45:47.645 [info] > git check-ignore -v -z --stdin [5ms]
+2026-07-08 03:45:48.411 [info] [Git][getRemotes] No remotes found in the git config file
+2026-07-08 03:45:48.452 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [42ms]
+2026-07-08 03:45:48.452 [warning] [Git][getBranch] No such branch: main
+2026-07-08 03:45:48.452 [info] > git config --get commit.template [61ms]
+2026-07-08 03:45:48.477 [info] > git status -z -uall [14ms]
+2026-07-08 03:45:48.478 [info] > git for-each-ref --sort -committerdate --format %(refname)%00%(objectname)%00%(*objectname) [2ms]
+2026-07-08 03:46:03.695 [info] [Git][getRemotes] No remotes found in the git config file
+2026-07-08 03:46:03.699 [info] > git config --get commit.template [44ms]
+2026-07-08 03:46:03.700 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [6ms]
+2026-07-08 03:46:03.701 [warning] [Git][getBranch] No such branch: main
+2026-07-08 03:46:03.786 [info] > git status -z -uall [45ms]
+2026-07-08 03:46:03.789 [info] > git for-each-ref --sort -committerdate --format %(refname)%00%(objectname)%00%(*objectname) [6ms]
+2026-07-08 03:46:03.848 [info] > git config --get commit.template [10ms]
+2026-07-08 03:46:03.866 [info] [Git][getRemotes] No remotes found in the git config file
+2026-07-08 03:46:03.867 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [2ms]
+2026-07-08 03:46:03.867 [warning] [Git][getBranch] No such branch: main
+2026-07-08 03:46:03.909 [info] > git status -z -uall [25ms]
+2026-07-08 03:46:03.909 [info] > git for-each-ref --sort -committerdate --format %(refname)%00%(objectname)%00%(*objectname) [9ms]
+2026-07-08 03:46:04.088 [info] > git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%D%n%B -z -n5 [2ms]
+2026-07-08 03:46:04.088 [info] fatal: your current branch 'main' does not have any commits yet
+2026-07-08 03:46:14.826 [info] > git add -A -- . [40ms]
+2026-07-08 03:46:14.851 [info] > git -c user.useConfigOnly=true commit --quiet --allow-empty-message --file - [3ms]
+2026-07-08 03:46:14.851 [info] Author identity unknown
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: no email was given and auto-detection is disabled
+2026-07-08 03:46:14.867 [info] > git config --get-all user.name [1ms]
+2026-07-08 03:46:14.901 [info] [Git][getRemotes] No remotes found in the git config file
+2026-07-08 03:46:14.902 [info] > git config --get commit.template [19ms]
+2026-07-08 03:46:14.902 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [1ms]
+2026-07-08 03:46:14.902 [warning] [Git][getBranch] No such branch: main
+2026-07-08 03:46:14.935 [info] > git status -z -uall [18ms]
+2026-07-08 03:46:14.937 [info] > git for-each-ref --sort -committerdate --format %(refname)%00%(objectname)%00%(*objectname) [2ms]
+2026-07-08 03:46:15.316 [info] > git check-ignore -v -z --stdin [1ms]
+2026-07-08 03:46:15.381 [info] > git show --textconv :src/components/ProjectPanel.css [47ms]
+2026-07-08 03:46:15.381 [info] > git show --textconv HEAD:src/components/ProjectPanel.css [32ms]
+2026-07-08 03:46:15.381 [info] > git ls-files --stage -- src/components/ProjectPanel.css [17ms]
+2026-07-08 03:46:15.413 [info] > git cat-file -s 0e58787514b95aff7863aa3f73bbca7d1a7ab6f3 [17ms]
+2026-07-08 03:46:15.414 [info] > git ls-tree -l HEAD -- src/components/ProjectPanel.css [33ms]
+2026-07-08 03:46:15.414 [info] fatal: Not a valid object name HEAD
+2026-07-08 03:46:15.429 [info] > git hash-object -t tree /dev/null [18ms]
+2026-07-08 03:46:15.429 [warning] [GitFileSystemProvider][readFile] File not found - git:/home/sakib-shourov/IdeaProjects/Portfolio/src/components/ProjectPanel.css.git?%7B%22path%22%3A%22%2Fhome%2Fsakib-shourov%2FIdeaProjects%2FPortfolio%2Fsrc%2Fcomponents%2FProjectPanel.css%22%2C%22ref%22%3A%22HEAD%22%7D
+2026-07-08 03:46:15.432 [info] > git hash-object -t tree /dev/null [4ms]
+2026-07-08 03:46:15.432 [warning] [GitFileSystemProvider][stat] File not found - git:/home/sakib-shourov/IdeaProjects/Portfolio/src/components/ProjectPanel.css.git?%7B%22path%22%3A%22%2Fhome%2Fsakib-shourov%2FIdeaProjects%2FPortfolio%2Fsrc%2Fcomponents%2FProjectPanel.css%22%2C%22ref%22%3A%22HEAD%22%7D
+2026-07-08 03:46:17.446 [info] > git config --get commit.template [4ms]
+2026-07-08 03:46:17.461 [info] [Git][getRemotes] No remotes found in the git config file
+2026-07-08 03:46:17.463 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [1ms]
+2026-07-08 03:46:17.463 [warning] [Git][getBranch] No such branch: main
+2026-07-08 03:46:17.493 [info] > git status -z -uall [15ms]
+2026-07-08 03:46:17.494 [info] > git for-each-ref --sort -committerdate --format %(refname)%00%(objectname)%00%(*objectname) [2ms]
+2026-07-08 03:46:17.560 [info] > git ls-files --stage -- src/components/ProjectPanel.css [1ms]
+2026-07-08 03:46:17.577 [info] > git cat-file -s 0e58787514b95aff7863aa3f73bbca7d1a7ab6f3 [2ms]
+2026-07-08 03:46:17.663 [info] > git show --textconv :src/components/ProjectPanel.css [2ms]
+2026-07-08 03:46:17.863 [info] > git check-ignore -v -z --stdin [1ms]
+2026-07-08 03:46:20.443 [info] > git -c user.useConfigOnly=true commit --quiet --allow-empty-message --file - [5ms]
+2026-07-08 03:46:20.444 [info] Author identity unknown
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: no email was given and auto-detection is disabled
+2026-07-08 03:46:20.458 [info] > git config --get-all user.name [2ms]
+2026-07-08 03:46:20.478 [info] > git config --get commit.template [3ms]
+2026-07-08 03:46:20.492 [info] [Git][getRemotes] No remotes found in the git config file
+2026-07-08 03:46:20.494 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [3ms]
+2026-07-08 03:46:20.494 [warning] [Git][getBranch] No such branch: main
+2026-07-08 03:46:20.524 [info] > git status -z -uall [16ms]
+2026-07-08 03:46:20.526 [info] > git for-each-ref --sort -committerdate --format %(refname)%00%(objectname)%00%(*objectname) [3ms]
+2026-07-08 03:46:20.891 [info] > git check-ignore -v -z --stdin [3ms]
+2026-07-08 03:46:23.666 [info] [Git][getRemotes] No remotes found in the git config file
+2026-07-08 03:46:23.669 [info] > git config --get commit.template [21ms]
+2026-07-08 03:46:23.670 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [4ms]
+2026-07-08 03:46:23.670 [warning] [Git][getBranch] No such branch: main
+2026-07-08 03:46:23.722 [info] > git status -z -uall [34ms]
+2026-07-08 03:46:23.722 [info] > git for-each-ref --sort -committerdate --format %(refname)%00%(objectname)%00%(*objectname) [17ms]
+2026-07-08 03:46:23.727 [info] > git ls-files --stage -- src/components/ProjectPanel.css [6ms]
+2026-07-08 03:46:23.745 [info] > git cat-file -s 0e58787514b95aff7863aa3f73bbca7d1a7ab6f3 [3ms]
+2026-07-08 03:46:23.770 [info] > git show --textconv :src/components/ProjectPanel.css [4ms]
+2026-07-08 03:46:24.091 [info] > git check-ignore -v -z --stdin [1ms]
+2026-07-08 03:46:34.766 [info] > git -c user.useConfigOnly=true commit --quiet --allow-empty-message --file - [2ms]
+2026-07-08 03:46:34.766 [info] Author identity unknown
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: no email was given and auto-detection is disabled
+2026-07-08 03:46:34.782 [info] > git config --get-all user.name [1ms]
+2026-07-08 03:46:34.799 [info] [Git][getRemotes] No remotes found in the git config file
+2026-07-08 03:46:34.814 [info] > git config --get commit.template [16ms]
+2026-07-08 03:46:34.815 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [3ms]
+2026-07-08 03:46:34.816 [warning] [Git][getBranch] No such branch: main
+2026-07-08 03:46:34.858 [info] > git status -z -uall [22ms]
+2026-07-08 03:46:34.858 [info] > git for-each-ref --sort -committerdate --format %(refname)%00%(objectname)%00%(*objectname) [1ms]
+2026-07-08 03:46:35.235 [info] > git check-ignore -v -z --stdin [2ms]
+2026-07-08 03:46:36.851 [info] > git config --get commit.template [16ms]
+2026-07-08 03:46:36.866 [info] [Git][getRemotes] No remotes found in the git config file
+2026-07-08 03:46:36.867 [info] > git ls-files --stage -- src/components/ProjectPanel.css [17ms]
+2026-07-08 03:46:36.882 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [17ms]
+2026-07-08 03:46:36.882 [warning] [Git][getBranch] No such branch: main
+2026-07-08 03:46:36.918 [info] > git status -z -uall [19ms]
+2026-07-08 03:46:36.918 [info] > git for-each-ref --sort -committerdate --format %(refname)%00%(objectname)%00%(*objectname) [3ms]
+2026-07-08 03:46:36.920 [info] > git cat-file -s 0e58787514b95aff7863aa3f73bbca7d1a7ab6f3 [39ms]
+2026-07-08 03:46:36.948 [info] > git show --textconv :src/components/ProjectPanel.css [3ms]
+2026-07-08 03:46:37.248 [info] > git check-ignore -v -z --stdin [2ms]
+2026-07-08 03:46:41.324 [info] [Git][getRemotes] No remotes found in the git config file
+2026-07-08 03:46:41.325 [info] > git config --get commit.template [20ms]
+2026-07-08 03:46:41.326 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [3ms]
+2026-07-08 03:46:41.326 [warning] [Git][getBranch] No such branch: main
+2026-07-08 03:46:41.367 [info] > git status -z -uall [26ms]
+2026-07-08 03:46:41.368 [info] > git for-each-ref --sort -committerdate --format %(refname)%00%(objectname)%00%(*objectname) [7ms]
+2026-07-08 03:46:41.723 [info] > git check-ignore -v -z --stdin [3ms]
+2026-07-08 03:46:43.529 [info] > git -c user.useConfigOnly=true commit --quiet --allow-empty-message --file - [2ms]
+2026-07-08 03:46:43.529 [info] Author identity unknown
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: no email was given and auto-detection is disabled
+2026-07-08 03:46:43.544 [info] > git config --get-all user.name [2ms]
+2026-07-08 03:46:43.561 [info] > git config --get commit.template [2ms]
+2026-07-08 03:46:43.577 [info] [Git][getRemotes] No remotes found in the git config file
+2026-07-08 03:46:43.579 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [2ms]
+2026-07-08 03:46:43.580 [warning] [Git][getBranch] No such branch: main
+2026-07-08 03:46:43.609 [info] > git status -z -uall [16ms]
+2026-07-08 03:46:43.610 [info] > git for-each-ref --sort -committerdate --format %(refname)%00%(objectname)%00%(*objectname) [2ms]
+2026-07-08 03:46:43.952 [info] > git check-ignore -v -z --stdin [2ms]
+2026-07-08 03:46:46.162 [info] > git config --get commit.template [2ms]
+2026-07-08 03:46:46.179 [info] [Git][getRemotes] No remotes found in the git config file
+2026-07-08 03:46:46.181 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [2ms]
+2026-07-08 03:46:46.182 [warning] [Git][getBranch] No such branch: main
+2026-07-08 03:46:46.235 [info] > git status -z -uall [37ms]
+2026-07-08 03:46:46.236 [info] > git for-each-ref --sort -committerdate --format %(refname)%00%(objectname)%00%(*objectname) [19ms]
+2026-07-08 03:46:46.242 [info] > git ls-files --stage -- src/components/ProjectPanel.css [8ms]
+2026-07-08 03:46:46.260 [info] > git cat-file -s 0e58787514b95aff7863aa3f73bbca7d1a7ab6f3 [3ms]
+2026-07-08 03:46:46.290 [info] > git show --textconv :src/components/ProjectPanel.css [3ms]
+2026-07-08 03:46:46.586 [info] > git check-ignore -v -z --stdin [2ms]
+
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}

@@ -1,0 +1,200 @@
+/* ==========================================
+   1. Theme Variables (Light Mode Default)
+   ========================================== */
+:root {
+  --bg-section: #f8fafc;
+  --bg-card: rgba(255, 255, 255, 0.85);
+  --border-card: rgba(226, 232, 240, 0.8);
+  --shadow-card: rgba(15, 23, 42, 0.03);
+  
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --text-desc: #475569;
+  
+  --accent-primary: #0d9488;
+  --accent-secondary: #d97706;
+  
+  --bg-tag: #f1f5f9;
+  --border-tag: #e2e8f0;
+  --text-tag: #334155;
+}
+
+/* ==========================================
+   2. Dark Mode Overrides 
+   (Triggered when parent/body has .dark class)
+   ========================================== */
+.dark, [data-theme='dark'] {
+  --bg-section: #0f172a;
+  --bg-card: rgba(30, 41, 59, 0.7);
+  --border-card: rgba(51, 65, 85, 0.5);
+  --shadow-card: rgba(0, 0, 0, 0.3);
+  
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --text-desc: #cbd5e1;
+  
+  --accent-primary: #2dd4bf;
+  --accent-secondary: #fbbf24;
+  
+  --bg-tag: #1e293b;
+  --border-tag: #334155;
+  --text-tag: #e2e8f0;
+}
+
+/* ==========================================
+   3. Component Styles
+   ========================================== */
+.interests-section {
+  padding: 80px 20px;
+  background-color: var(--bg-section);
+  transition: background-color 0.3s ease;
+  color: var(--text-main);
+}
+
+.section-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--text-main);
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+  font-size: 1rem;
+  color: var(--text-muted);
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+/* Main Grid Layout */
+.interests-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+.premium-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-card);
+  border-radius: 16px;
+  padding: 1.75rem;
+  box-shadow: 0 4px 20px var(--shadow-card);
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.interests-quote {
+  font-style: italic;
+  color: var(--text-muted);
+  margin: 1rem 0;
+}
+
+.skill-category-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.interest-meta-title {
+  font-weight: 600;
+  color: var(--accent-primary);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+/* Target specifically the Knowledge Streams headers */
+.interest-meta-title.alternate-title {
+  color: var(--accent-secondary);
+}
+
+.interest-meta-desc {
+  font-size: 0.875rem;
+  color: var(--text-desc);
+  line-height: 1.5;
+  margin: 0 0 1rem 0;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skill-tag {
+  background-color: var(--bg-tag);
+  color: var(--text-tag);
+  padding: 0.5rem 0.85rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: 1px solid var(--border-tag);
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 992px) {
+  .interests-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Floating transparent quote boxes styles */
+.interests-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.interests-floating-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.interests-floating-box {
+  position: absolute;
+  background: var(--bg-card);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--border-card);
+  border-radius: 12px;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 4px 20px var(--shadow-card);
+  z-index: 2;
+  white-space: nowrap;
+}
+
+.interests-floating-box .quote-text {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.ifb-1 {
+  top: 15%;
+  right: 5%;
+  animation: floatSlowInterest1 12s ease-in-out infinite;
+}
+
+.ifb-2 {
+  bottom: 15%;
+  left: 5%;
+  animation: floatSlowInterest2 14s ease-in-out infinite;
+}
+
+@keyframes floatSlowInterest1 {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(2deg); }
+}
+
+@keyframes floatSlowInterest2 {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(12px) rotate(-2deg); }
+}
