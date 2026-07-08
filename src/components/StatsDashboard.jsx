@@ -82,7 +82,6 @@ const timeAgo = (dateString) => {
   return `Updated on ${date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}`;
 };
 
-// Added isDark prop to control the theme
 export default function StatsDashboard({ isDark = true }) {
   const [ghUser, setGhUser] = useState('sakib-011');
   const [cfUser, setCfUser] = useState('sakib_001');
@@ -104,7 +103,6 @@ export default function StatsDashboard({ isDark = true }) {
     handle: 'sakib_001', rating: 840, maxRating: 1001, rank: 'Newbie', maxRank: 'Newbie', contribution: 0, organization: 'Southeast University', avatar: '', titlePhoto: ''
   });
 
-  // Dynamic Theme Colors based on isDark prop
   const theme = {
     bg: isDark ? '#0d1117' : '#f6f8fa',
     cardBg: isDark ? '#161b22' : '#ffffff',
@@ -237,17 +235,32 @@ export default function StatsDashboard({ isDark = true }) {
   };
 
   return (
-    <section id="dashboard" className="dashboard-section" style={{ backgroundColor: theme.bg, padding: '40px 20px', minHeight: '100vh', color: theme.textMain, fontFamily: '-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif', transition: 'background-color 0.3s ease, color 0.3s ease' }}>
-      <div className="container" style={{ maxWidth: '1200px', margin: '0 auto' }}>
-        <h2 className="section-title" style={{ textAlign: 'center', color: theme.title, marginBottom: '10px' }}>Developer Stack Boards</h2>
-        <p className="section-subtitle" style={{ textAlign: 'center', color: theme.textMuted, marginBottom: '40px' }}>
+    <section id="dashboard" className="dashboard-section" style={{ 
+      backgroundColor: theme.bg, 
+      padding: 'max(4vw, 20px) 20px', 
+      minHeight: '100vh', 
+      color: theme.textMain, 
+      fontFamily: '-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif', 
+      transition: 'background-color 0.3s ease, color 0.3s ease',
+      boxSizing: 'border-box'
+    }}>
+      <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', width: '100%' }}>
+        <h2 className="section-title" style={{ textAlign: 'center', color: theme.title, marginBottom: '10px', fontSize: 'clamp(24px, 5vw, 32px)' }}>Developer Stack Boards</h2>
+        <p className="section-subtitle" style={{ textAlign: 'center', color: theme.textMuted, marginBottom: '40px', fontSize: 'clamp(14px, 3vw, 16px)' }}>
           Real-time analytics boards synced with GitHub and Codeforces.
         </p>
 
         {/* Dynamic Input Form */}
-        <div className="sync-form premium-card" style={{ backgroundColor: theme.cardBg, padding: '20px', borderRadius: '12px', marginBottom: '40px', border: `1px solid ${theme.border}`, transition: 'all 0.3s ease' }}>
+        <div className="sync-form premium-card" style={{ 
+          backgroundColor: theme.cardBg, 
+          padding: '20px', 
+          borderRadius: '12px', 
+          marginBottom: '40px', 
+          border: `1px solid ${theme.border}`, 
+          transition: 'all 0.3s ease' 
+        }}>
           <div className="sync-inputs" style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
-            <div className="sync-input-group" style={{ flex: '1', minWidth: '250px' }}>
+            <div className="sync-input-group" style={{ flex: '1 1 min(100%, 250px)' }}>
               <label htmlFor="gh-input" style={{ display: 'block', marginBottom: '8px', fontSize: '14px', fontWeight: '600', color: theme.textMain }}>GitHub Username</label>
               <input 
                 id="gh-input"
@@ -255,10 +268,10 @@ export default function StatsDashboard({ isDark = true }) {
                 value={ghUser} 
                 onChange={(e) => setGhUser(e.target.value)} 
                 placeholder="Search a user (e.g. sakib-011)"
-                style={{ width: '100%', padding: '10px', borderRadius: '6px', border: `1px solid ${theme.border}`, backgroundColor: theme.inputBg, color: theme.textMain, transition: 'all 0.3s ease' }}
+                style={{ width: '100%', padding: '10px', borderRadius: '6px', border: `1px solid ${theme.border}`, backgroundColor: theme.inputBg, color: theme.textMain, boxSizing: 'border-box' }}
               />
             </div>
-            <div className="sync-input-group" style={{ flex: '1', minWidth: '250px' }}>
+            <div className="sync-input-group" style={{ flex: '1 1 min(100%, 250px)' }}>
               <label htmlFor="cf-input" style={{ display: 'block', marginBottom: '8px', fontSize: '14px', fontWeight: '600', color: theme.textMain }}>Codeforces Handle</label>
               <input 
                 id="cf-input"
@@ -266,22 +279,26 @@ export default function StatsDashboard({ isDark = true }) {
                 value={cfUser} 
                 onChange={(e) => setCfUser(e.target.value)} 
                 placeholder="Search a handle (e.g. sakib_001)"
-                style={{ width: '100%', padding: '10px', borderRadius: '6px', border: `1px solid ${theme.border}`, backgroundColor: theme.inputBg, color: theme.textMain, transition: 'all 0.3s ease' }}
+                style={{ width: '100%', padding: '10px', borderRadius: '6px', border: `1px solid ${theme.border}`, backgroundColor: theme.inputBg, color: theme.textMain, boxSizing: 'border-box' }}
               />
             </div>
           </div>
         </div>
 
         {/* Boards Grid */}
-        <div className="boards-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '30px' }}>
+        <div className="boards-grid" style={{ 
+          display: 'grid', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))', 
+          gap: '30px' 
+        }}>
           
           {/* GitHub Stack Board */}
-          <div className="board-card premium-card" style={{ backgroundColor: theme.cardBg, borderRadius: '12px', border: `1px solid ${theme.border}`, overflow: 'hidden', transition: 'all 0.3s ease' }}>
-            <div style={{ padding: '20px', borderBottom: `1px solid ${theme.border}` }}>
+          <div className="board-card premium-card" style={{ backgroundColor: theme.cardBg, borderRadius: '12px', border: `1px solid ${theme.border}`, overflow: 'hidden', transition: 'all 0.3s ease', display: 'flex', flexDirection: 'column' }}>
+            <div style={{ padding: '20px', borderBottom: `1px solid ${theme.border}`, flex: '1' }}>
               {ghLoading && <div style={{ color: theme.accent, marginBottom: '10px', fontSize: '14px' }}>Syncing GitHub...</div>}
               {ghError && <div style={{ color: '#f85149', marginBottom: '10px', fontSize: '14px' }}>{ghError}</div>}
               
-              <div className="board-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+              <div className="board-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px', flexWrap: 'wrap', gap: '10px' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                   <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2ea043" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
@@ -289,82 +306,97 @@ export default function StatsDashboard({ isDark = true }) {
                   </svg>
                   <h3 style={{ margin: 0, color: theme.title, fontSize: '18px' }}>GitHub Stack</h3>
                 </div>
-                <a href={ghData.html_url || `https://github.com/${ghData.login}`} target="_blank" rel="noopener noreferrer" style={{ color: theme.accent, textDecoration: 'none', fontSize: '14px' }}>
+                <a href={ghData.html_url || `https://github.com/${ghData.login}`} target="_blank" rel="noopener noreferrer" style={{ color: theme.accent, textDecoration: 'none', fontSize: '14px', whiteSpace: 'nowrap' }}>
                   View Profile
                 </a>
               </div>
 
-              <div className="profile-summary" style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '20px' }}>
+              <div className="profile-summary" style={{ display: 'flex', alignItems: 'flex-start', gap: '15px', marginBottom: '20px' }}>
                 <img 
                   src={ghData.avatar_url || GOKU_FALLBACK} 
                   alt={ghData.name} 
-                  style={{ width: '64px', height: '64px', borderRadius: '50%', objectFit: 'cover' }}
+                  style={{ width: '64px', height: '64px', borderRadius: '50%', objectFit: 'cover', flexShrink: 0 }}
                   onError={(e) => { e.target.src = GOKU_FALLBACK; }} 
                 />
-                <div>
-                  <h4 style={{ margin: '0 0 4px 0', color: theme.title, fontSize: '18px' }}>{ghData.name || ghData.login}</h4>
+                <div style={{ wordBreak: 'break-word' }}>
+                  <h4 style={{ margin: '0 0 4px 0', color: theme.title, fontSize: 'clamp(16px, 4vw, 18px)' }}>{ghData.name || ghData.login}</h4>
                   <p style={{ margin: '0 0 8px 0', color: theme.textMuted, fontSize: '14px' }}>@{ghData.login}</p>
                   <p style={{ margin: 0, fontSize: '13px', lineHeight: '1.4', color: theme.textMain }}>{ghData.bio || 'No biography available.'}</p>
                 </div>
               </div>
 
-              <div className="profile-stats" style={{ display: 'flex', gap: '20px', borderTop: `1px solid ${theme.border}`, paddingTop: '15px' }}>
-                <div style={{ textAlign: 'center' }}>
+              <div className="profile-stats" style={{ display: 'flex', gap: '10px', justifyContent: 'space-between', borderTop: `1px solid ${theme.border}`, paddingTop: '15px' }}>
+                <div style={{ textAlign: 'center', flex: 1 }}>
                   <div style={{ fontWeight: 'bold', color: theme.title, fontSize: '18px' }}>{ghData.public_repos || 0}</div>
                   <div style={{ color: theme.textMuted, fontSize: '12px' }}>Repos</div>
                 </div>
-                <div style={{ textAlign: 'center' }}>
+                <div style={{ textAlign: 'center', flex: 1 }}>
                   <div style={{ fontWeight: 'bold', color: theme.title, fontSize: '18px' }}>
                     {ghData.followers >= 1000 ? `${(ghData.followers/1000).toFixed(1)}k` : (ghData.followers || 0)}
                   </div>
                   <div style={{ color: theme.textMuted, fontSize: '12px' }}>Followers</div>
                 </div>
-                <div style={{ textAlign: 'center' }}>
+                <div style={{ textAlign: 'center', flex: 1 }}>
                   <div style={{ fontWeight: 'bold', color: theme.title, fontSize: '18px' }}>{ghData.following || 0}</div>
                   <div style={{ color: theme.textMuted, fontSize: '12px' }}>Following</div>
                 </div>
               </div>
             </div>
 
-            <div className="contrib-section" style={{ padding: '20px' }}>
+            <div className="contrib-section" style={{ padding: '20px', width: '100%', boxSizing: 'border-box' }}>
               <h4 style={{ margin: '0 0 15px 0', fontSize: '14px', color: theme.title }}>Contributions Activity</h4>
-              <div style={{ overflowX: 'auto' }}>
-                <div style={{ display: 'flex', gap: '5px' }}>
-                  <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', fontSize: '10px', color: theme.textMuted, paddingRight: '5px' }}>
-                    {days.map((d, i) => <span key={i} style={{ height: '11px', lineHeight: '11px' }}>{d}</span>)}
-                  </div>
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(30, 11px)', gap: '3px' }}>
-                    {ghGrid.map((row, rIdx) => (
-                      <React.Fragment key={rIdx}>
-                        {row.map((commits, cIdx) => {
-                          let bg = theme.gridEmpty;
-                          if (commits === 1) bg = theme.gridL1;
-                          else if (commits === 2) bg = theme.gridL2;
-                          else if (commits === 3) bg = theme.gridL3;
-                          else if (commits >= 4) bg = theme.gridL4;
-                          
-                          return (
-                            <div 
-                              key={`${rIdx}-${cIdx}`} 
-                              style={{ width: '11px', height: '11px', backgroundColor: bg, borderRadius: '2px', gridRow: rIdx + 1, gridColumn: cIdx + 1, transition: 'background-color 0.3s ease' }}
-                              title={`${commits} contributions`}
-                            ></div>
-                          );
-                        })}
-                      </React.Fragment>
-                    ))}
-                  </div>
+              
+              {/* Force Full Stack To Fit Horizontally */}
+              <div style={{ display: 'flex', gap: 'min(8px, 2vw)', width: '100%' }}>
+                {/* Y-Axis Days Label */}
+                <div style={{ display: 'grid', gridTemplateRows: 'repeat(7, 1fr)', gap: 'clamp(1px, 0.5vw, 3px)', color: theme.textMuted }}>
+                  {days.map((d, i) => (
+                    <span key={i} style={{ display: 'flex', alignItems: 'center', fontSize: 'clamp(9px, 2vw, 11px)' }}>
+                      {d}
+                    </span>
+                  ))}
+                </div>
+                
+                {/* Grid Cells Wrapper - minmax(0, 1fr) strictly forces it to fit without scrolling */}
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(30, minmax(0, 1fr))', gap: 'clamp(1px, 0.5vw, 3px)', flex: 1, width: '100%' }}>
+                  {ghGrid.map((row, rIdx) => (
+                    <React.Fragment key={rIdx}>
+                      {row.map((commits, cIdx) => {
+                        let bg = theme.gridEmpty;
+                        if (commits === 1) bg = theme.gridL1;
+                        else if (commits === 2) bg = theme.gridL2;
+                        else if (commits === 3) bg = theme.gridL3;
+                        else if (commits >= 4) bg = theme.gridL4;
+                        
+                        return (
+                          <div 
+                            key={`${rIdx}-${cIdx}`} 
+                            style={{ 
+                              width: '100%', 
+                              aspectRatio: '1 / 1', 
+                              backgroundColor: bg, 
+                              borderRadius: '2px', 
+                              gridRow: rIdx + 1, 
+                              gridColumn: cIdx + 1, 
+                              transition: 'background-color 0.3s ease' 
+                            }}
+                            title={`${commits} contributions`}
+                          ></div>
+                        );
+                      })}
+                    </React.Fragment>
+                  ))}
                 </div>
               </div>
             </div>
           </div>
 
           {/* Codeforces Stack Board */}
-          <div className="board-card premium-card" style={{ backgroundColor: theme.cardBg, borderRadius: '12px', border: `1px solid ${theme.border}`, padding: '20px', height: 'fit-content', transition: 'all 0.3s ease' }}>
+          <div className="board-card premium-card" style={{ backgroundColor: theme.cardBg, borderRadius: '12px', border: `1px solid ${theme.border}`, padding: '20px', display: 'flex', flexDirection: 'column', transition: 'all 0.3s ease' }}>
             {cfLoading && <div style={{ color: theme.cfYellow, marginBottom: '10px', fontSize: '14px' }}>Syncing Codeforces...</div>}
             {cfError && <div style={{ color: '#f85149', marginBottom: '10px', fontSize: '14px' }}>{cfError}</div>}
 
-            <div className="board-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+            <div className="board-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px', flexWrap: 'wrap', gap: '10px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={theme.cfYellow} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M12 2v20"></path>
@@ -372,20 +404,20 @@ export default function StatsDashboard({ isDark = true }) {
                 </svg>
                 <h3 style={{ margin: 0, color: theme.title, fontSize: '18px' }}>Codeforces Stack</h3>
               </div>
-              <a href={`https://codeforces.com/profile/${cfData.handle}`} target="_blank" rel="noopener noreferrer" style={{ color: theme.accent, textDecoration: 'none', fontSize: '14px' }}>
+              <a href={`https://codeforces.com/profile/${cfData.handle}`} target="_blank" rel="noopener noreferrer" style={{ color: theme.accent, textDecoration: 'none', fontSize: '14px', whiteSpace: 'nowrap' }}>
                 View Profile
               </a>
             </div>
 
-            <div className="profile-summary" style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '20px' }}>
+            <div className="profile-summary" style={{ display: 'flex', alignItems: 'flex-start', gap: '15px', marginBottom: '20px', flex: '1' }}>
               <img 
                 src={cfData.titlePhoto || cfData.avatar || GOKU_FALLBACK} 
                 alt={cfData.handle} 
-                style={{ width: '64px', height: '64px', borderRadius: '50%', objectFit: 'cover' }}
+                style={{ width: '64px', height: '64px', borderRadius: '50%', objectFit: 'cover', flexShrink: 0 }}
                 onError={(e) => { e.target.src = GOKU_FALLBACK; }} 
               />
-              <div>
-                <h4 style={{ margin: '0 0 4px 0', fontSize: '18px', color: theme.title }}>
+              <div style={{ wordBreak: 'break-word' }}>
+                <h4 style={{ margin: '0 0 4px 0', fontSize: 'clamp(16px, 4vw, 18px)', color: theme.title }}>
                   {renderCfHandle(cfData.handle, cfData.rank)}
                 </h4>
                 <p style={{ margin: '0 0 8px 0', fontSize: '14px', fontWeight: 'bold', color: getCfRankColor(cfData.rank) }}>
@@ -397,53 +429,68 @@ export default function StatsDashboard({ isDark = true }) {
               </div>
             </div>
 
-            <div className="profile-stats" style={{ display: 'flex', gap: '20px', borderTop: `1px solid ${theme.border}`, paddingTop: '15px', marginBottom: '20px' }}>
-              <div style={{ textAlign: 'center' }}>
+            <div className="profile-stats" style={{ display: 'flex', gap: '10px', justifyContent: 'space-between', borderTop: `1px solid ${theme.border}`, paddingTop: '15px', marginBottom: '20px' }}>
+              <div style={{ textAlign: 'center', flex: 1 }}>
                 <div style={{ fontWeight: 'bold', fontSize: '18px', color: getCfRankColor(cfData.rank) }}>
                   {cfData.rating || 'N/A'}
                 </div>
                 <div style={{ color: theme.textMuted, fontSize: '12px' }}>Rating</div>
               </div>
-              <div style={{ textAlign: 'center' }}>
+              <div style={{ textAlign: 'center', flex: 1 }}>
                 <div style={{ fontWeight: 'bold', fontSize: '18px', color: getCfRankColor(cfData.maxRank) }}>
                   {cfData.maxRating || 'N/A'}
                 </div>
                 <div style={{ color: theme.textMuted, fontSize: '12px' }}>Max Rating</div>
               </div>
-              <div style={{ textAlign: 'center' }}>
+              <div style={{ textAlign: 'center', flex: 1 }}>
                 <div style={{ fontWeight: 'bold', color: theme.title, fontSize: '18px' }}>{cfData.contribution || 0}</div>
                 <div style={{ color: theme.textMuted, fontSize: '12px' }}>Contribution</div>
               </div>
             </div>
 
-            <div className="contrib-section" style={{ marginBottom: '20px' }}>
+            <div className="contrib-section" style={{ marginBottom: '20px', width: '100%', boxSizing: 'border-box' }}>
               <h4 style={{ margin: '0 0 15px 0', fontSize: '14px', color: theme.title }}>Submissions & Solves</h4>
-              <div style={{ overflowX: 'auto' }}>
-                <div style={{ display: 'flex', gap: '5px' }}>
-                  <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', fontSize: '10px', color: theme.textMuted, paddingRight: '5px' }}>
-                    {days.map((d, i) => <span key={i} style={{ height: '11px', lineHeight: '11px' }}>{d}</span>)}
-                  </div>
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(30, 11px)', gap: '3px' }}>
-                    {cfGrid.map((row, rIdx) => (
-                      <React.Fragment key={rIdx}>
-                        {row.map((solves, cIdx) => {
-                          let bg = theme.gridEmpty;
-                          if (solves === 1) bg = theme.gridL1;
-                          else if (solves === 2) bg = theme.gridL2;
-                          else if (solves === 3) bg = theme.gridL3;
-                          else if (solves >= 4) bg = theme.gridL4;
-                          
-                          return (
-                            <div 
-                              key={`${rIdx}-${cIdx}`} 
-                              style={{ width: '11px', height: '11px', backgroundColor: bg, borderRadius: '2px', gridRow: rIdx + 1, gridColumn: cIdx + 1, transition: 'background-color 0.3s ease' }}
-                              title={`${solves} problems solved`}
-                            ></div>
-                          );
-                        })}
-                      </React.Fragment>
-                    ))}
-                  </div>
+              
+              {/* Force Full Stack To Fit Horizontally */}
+              <div style={{ display: 'flex', gap: 'min(8px, 2vw)', width: '100%' }}>
+                {/* Y-Axis Days Label */}
+                <div style={{ display: 'grid', gridTemplateRows: 'repeat(7, 1fr)', gap: 'clamp(1px, 0.5vw, 3px)', color: theme.textMuted }}>
+                  {days.map((d, i) => (
+                    <span key={i} style={{ display: 'flex', alignItems: 'center', fontSize: 'clamp(9px, 2vw, 11px)' }}>
+                      {d}
+                    </span>
+                  ))}
+                </div>
+                
+                {/* Grid Cells Wrapper - minmax(0, 1fr) strictly forces it to fit without scrolling */}
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(30, minmax(0, 1fr))', gap: 'clamp(1px, 0.5vw, 3px)', flex: 1, width: '100%' }}>
+                  {cfGrid.map((row, rIdx) => (
+                    <React.Fragment key={rIdx}>
+                      {row.map((solves, cIdx) => {
+                        let bg = theme.gridEmpty;
+                        if (solves === 1) bg = theme.gridL1;
+                        else if (solves === 2) bg = theme.gridL2;
+                        else if (solves === 3) bg = theme.gridL3;
+                        else if (solves >= 4) bg = theme.gridL4;
+                        
+                        return (
+                          <div 
+                            key={`${rIdx}-${cIdx}`} 
+                            style={{ 
+                              width: '100%', 
+                              aspectRatio: '1 / 1', 
+                              backgroundColor: bg, 
+                              borderRadius: '2px', 
+                              gridRow: rIdx + 1, 
+                              gridColumn: cIdx + 1, 
+                              transition: 'background-color 0.3s ease' 
+                            }}
+                            title={`${solves} problems solved`}
+                          ></div>
+                        );
+                      })}
+                    </React.Fragment>
+                  ))}
                 </div>
               </div>
             </div>
