@@ -1,16 +1,72 @@
-# React + Vite
+# Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A personal portfolio website built with React and Vite.
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+This project is a responsive portfolio app showcasing personal information, projects, experience, testimonials, and contact details.
 
-## React Compiler
+## Built With
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React
+- Vite
+- Framer Motion
+- OXLint
 
-## Expanding the Oxlint configuration
+## Project Structure
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+- `src/main.jsx` — application entry point
+- `src/App.jsx` — main app structure
+- `src/components/` — reusable UI components
+  - `Navbar.jsx`
+  - `Hero.jsx`
+  - `About.jsx`
+  - `Interests.jsx`
+  - `ProjectPanel.jsx`
+  - `StatsDashboard.jsx`
+  - `Testimonials.jsx`
+  - `Timeline.jsx`
+  - `ContactForm.jsx`
+  - `Footer.jsx`
+
+## Available Scripts
+
+In the project directory, you can run:
+
+- `npm install` — install dependencies
+- `npm run dev` — start the development server
+- `npm run build` — build the production bundle
+- `npm run preview` — locally preview the production build
+- `npm run lint` — run OXLint checks
+
+## Getting Started
+
+1. Clone the repository:
+
+```bash
+git clone <repository-url>
+cd Portfolio
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. Start the development server:
+
+```bash
+npm run dev
+```
+
+4. Open the URL shown in the terminal to view the site.
+
+## Notes
+
+- The project uses ES modules with `type": "module"`.
+- `framer-motion` is used for animated transitions and UI effects.
+
+## License
+
+This repository is currently private and does not specify a license.
