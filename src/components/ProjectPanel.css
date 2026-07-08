@@ -1,4 +1,19 @@
+/* ==========================================================================
+   1. Typography & Global Layout Structure 
+   ========================================================================== */
+.projects-section {
+  width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
 
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
 
 .section-title {
   text-align: center;
@@ -27,7 +42,7 @@
   width: 100%;
   max-width: 1050px;
   margin: 0 auto;
-  perspective: 1000px; /* Gives 3D depth tilt effect */
+  perspective: 1000px;
 }
 
 .carousel-track-3d {
@@ -55,7 +70,6 @@
   flex-direction: column;
 }
 
-/* Layout curves mappings */
 .project-card-3d.center {
   transform: translate3d(0, 0, 100px) rotateY(0deg);
   opacity: 1;
@@ -212,9 +226,6 @@
   cursor: pointer;
 }
 
-
-
-/* Browser Mock Window frame */
 .deep-dive-hero-frame {
   background: var(--bg-card);
   border: 1px solid var(--border-card);
@@ -277,7 +288,6 @@
   cursor: pointer;
 }
 
-/* Asymmetrical Bento Structural Grid system */
 .bento-layout-grid {
   display: grid;
   grid-template-columns: 1.3fr 1fr;
@@ -325,7 +335,6 @@
 
 .bento-bullet-list li { margin-bottom: 0.4rem; line-height: 1.4; }
 
-/* Bento tab selectors */
 .bento-tabs-header {
   display: flex;
   gap: 1rem;
@@ -429,7 +438,7 @@
   border: 1px solid var(--border-card);
 }
 
-/* Animations */
+/* Base Animations */
 .animate-fade-in {
   animation: fadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
@@ -439,6 +448,7 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* Responsive Overrides */
 @media (max-width: 768px) {
   .bento-layout-grid { grid-template-columns: 1fr; }
   .structural-challenges-box { grid-column: span 1; }
@@ -447,26 +457,19 @@
   .project-card-3d.left-curve { transform: translate3d(-170px, 0, -60px) rotateY(20deg); }
   .project-card-3d.right-curve { transform: translate3d(170px, 0, -60px) rotateY(-20deg); }
 }
-/* ==========================================================================
-   GitHub Marquee Section (Full Screen Edge-to-Edge)
-   ========================================================================== */
 
+/* ==========================================================================
+   4. High-Performance Infinite Loop Git Stack Board 
+   ========================================================================== */
 .github-marquee-section {
   margin-top: 80px;
-  padding-top: 60px;
+  padding: 60px 0;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   overflow: hidden;
-  
-  /* মেইন কন্টেইনারের উইডথ লিমিট ভেঙে ফুল স্ক্রিন করার জন্য */
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-/* টেক্সট ও লোডিং স্টেটকে স্ক্রিনের সেন্টারে রাখার জন্য */
 .gh-section-title,
 .gh-section-subtitle,
 .gh-loading {
@@ -475,17 +478,19 @@
   margin-right: auto;
   padding: 0 20px;
   text-align: center;
+  box-sizing: border-box;
 }
 
 .gh-section-title {
   font-size: 2.2rem;
   font-weight: 700;
   margin-bottom: 8px;
+  color: var(--text-main);
 }
 
 .gh-section-subtitle {
   font-size: 1rem;
-  color: #64748b;
+  color: var(--text-muted);
   margin-bottom: 40px;
 }
 
@@ -495,13 +500,12 @@
   padding: 40px;
 }
 
-/* Marquee Track & Container */
 .marquee-container {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 24px;
   width: 100%;
-  padding: 20px 0;
+  padding: 10px 0;
 }
 
 .marquee-track {
@@ -514,73 +518,65 @@
   display: flex;
   gap: 20px;
   white-space: nowrap;
+  width: max-content; /* Critical: Keeps elements in a single horizontal matrix row */
 }
 
-/* ==========================================================================
-   GitHub Repo Card Styles (Fixed for Light/Dark Mode)
-   ========================================================================== */
-
-.marquee-content {
-  display: flex;
-  gap: 20px;
-  white-space: nowrap;
-  width: max-content; /* Added to ensure smooth infinite scrolling */
+/* Seamlessly pauses the loop when checking out a specific repository block */
+.marquee-track:hover .marquee-content {
+  animation-play-state: paused;
 }
 
+/* Card Elements Structure styling */
 .gh-repo-card {
-  background: var(--bg-card); /* Dynamic background instead of hardcoded rgba */
-  border: 1px solid var(--border-card); /* Dynamic border */
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
   border-radius: 12px;
   padding: 20px;
   text-decoration: none;
   color: inherit;
   display: flex;
   flex-direction: column;
-  width: 280px;
-  min-width: 280px;
-  max-width: 280px;
-  height: 170px;
+  width: 290px;
+  min-width: 290px;
+  max-width: 290px;
+  height: 175px;
   transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
   cursor: pointer;
+  box-sizing: border-box;
 }
 
 .gh-repo-card:hover {
-  border-color: #38bdf8;
-  transform: scale(1.02) translateY(-2px);
-  box-shadow: 0 8px 20px rgba(56, 189, 248, 0.06);
+  border-color: #0d9488;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(13, 148, 136, 0.08);
 }
 
-/* Card Elements */
 .gh-repo-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: var(--text-muted); /* Dynamic muted text */
+  color: var(--text-muted);
   margin-bottom: 12px;
-}
-
-.gh-icon {
-  opacity: 0.8;
 }
 
 .gh-repo-stars {
   font-size: 0.8rem;
-  font-weight: 500;
+  font-weight: 600;
   color: #f59e0b;
 }
 
 .gh-repo-name {
   font-size: 1.1rem;
-  font-weight: 600;
+  font-weight: 700;
   margin: 0 0 6px 0;
-  color: var(--text-main); /* Dynamic primary text */
+  color: var(--text-main);
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .gh-repo-desc {
   font-size: 0.85rem;
-  color: var(--text-muted); /* Dynamic muted text */
+  color: var(--text-muted);
   line-height: 1.4;
   margin-bottom: 12px;
   flex-grow: 1;
@@ -593,78 +589,41 @@
 
 .gh-repo-footer {
   display: flex;
-  gap: 14px;
+  gap: 16px;
   font-size: 0.75rem;
-  color: var(--text-muted); /* Dynamic muted text */
+  color: var(--text-muted);
   align-items: center;
 }
 
 .gh-repo-lang {
   display: flex;
   align-items: center;
-  gap: 5px;
-  color: var(--text-muted);
+  gap: 6px;
 }
 
 .lang-dot {
-  width: 7px;
-  height: 7px;
-  background-color: #38bdf8;
+  width: 8px;
+  height: 8px;
+  background-color: #0d9488;
   border-radius: 50%;
 }
 
-.gh-repo-forks {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-
-
-
-
-
+/* ─── HARDWARE-ACCELERATED UNBROKEN KEYFRAME ENGINE ─── */
 .track-left .marquee-content {
-
-animation: scroll-left 40s linear infinite;
-
+  animation: endless-scroll-left 45s linear infinite;
 }
-
-
-
 
 .track-right .marquee-content {
-
-animation: scroll-right 40s linear infinite;
-
+  animation: endless-scroll-right 45s linear infinite;
 }
 
-
-.marquee-track:hover .marquee-content {
-
-animation-play-state: paused;
-
+/* Exactly translates half of the combined matrix length before snapping back seamlessly */
+@keyframes endless-scroll-left {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
 }
 
-
-
-/* Infinite Loop Keyframes */
-
-@keyframes scroll-left {
-
-0% { transform: translateX(0); }
-
-100% { transform: translateX(-50%); }
-
+@keyframes endless-scroll-right {
+  0% { transform: translate3d(-50%, 0, 0); }
+  100% { transform: translate3d(0, 0, 0); }
 }
-
-
-
-@keyframes scroll-right {
-
-0% { transform: translateX(-50%); }
-
-100% { transform: translateX(0); }
-
-} 
-
