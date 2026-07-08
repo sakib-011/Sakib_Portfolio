@@ -34,7 +34,7 @@ function App() {
       <About />
       <Interests/>
       <ProjectPanel />
-      <StatsDashboard />
+      <StatsDashboard isDark={isDark} />
       <Timeline />
       <Testimonials />
       <ContactForm />
