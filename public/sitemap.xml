@@ -6,7 +6,7 @@
   
   <!-- Main Portfolio Homepage -->
   <url>
-    <loc>https://sakib-portfolio.vercel.app/</loc>
+    <loc>https://sakib-011.vercel.app/</loc>
     <lastmod>2026-10-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.00</priority>
@@ -14,7 +14,7 @@
 
   <!-- About & Skills Section -->
   <url>
-    <loc>https://sakib-portfolio.vercel.app/#about</loc>
+    <loc>https://sakib-011.vercel.app/#about</loc>
     <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
@@ -22,7 +22,7 @@
 
   <!-- Projects Showcase Section -->
   <url>
-    <loc>https://sakib-portfolio.vercel.app/#projects</loc>
+    <loc>https://sakib-011.vercel.app/#projects</loc>
     <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
@@ -30,7 +30,7 @@
 
   <!-- Interests & Engineering Philosophy -->
   <url>
-    <loc>https://sakib-portfolio.vercel.app/#interests</loc>
+    <loc>https://sakib-011.vercel.app/#interests</loc>
     <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
@@ -38,7 +38,7 @@
 
   <!-- Competitive Programming Stats & Dashboard -->
   <url>
-    <loc>https://sakib-portfolio.vercel.app/#stats</loc>
+    <loc>https://sakib-011.vercel.app/#stats</loc>
     <lastmod>2026-10-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.85</priority>
@@ -46,7 +46,7 @@
 
   <!-- Experience & Education Timeline -->
   <url>
-    <loc>https://sakib-portfolio.vercel.app/#timeline</loc>
+    <loc>https://sakib-011.vercel.app/#timeline</loc>
     <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
@@ -54,7 +54,7 @@
 
   <!-- Contact Section -->
   <url>
-    <loc>https://sakib-portfolio.vercel.app/#contact</loc>
+    <loc>https://sakib-011.vercel.app/#contact</loc>
     <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
