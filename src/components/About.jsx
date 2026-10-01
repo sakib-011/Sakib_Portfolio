@@ -161,7 +161,7 @@ export default function About() {
               </blockquote>
 
               <p>
-                I am a software developer with an analytical mindset deeply rooted in <strong>Competitive Programming</strong>.
+                I am <strong>Sakib Shourov</strong>, a software developer with an analytical mindset deeply rooted in <strong>Competitive Programming</strong>.
                 My foundation taught me to focus heavily on performance constraints, ensuring I write highly optimal, resource-efficient code.
               </p>
               <p>

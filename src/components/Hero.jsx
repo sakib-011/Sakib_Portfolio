@@ -440,7 +440,7 @@ export default function Hero() {
       <div className="avz-container">
         <div>
           <div className="avz-badge"><span className="avz-dot" />Ready to Code &amp; Solve</div>
-          <h1 className="avz-title">Hey, I'm <span className="accent">Sakib</span></h1>
+          <h1 className="avz-title">Hey, I'm <span className="accent">Sakib Shourov</span></h1>
           <h2 className="avz-subtitle">
             Passionate <span className="gold">{typedText}</span>
             <span className="avz-cursor">&nbsp;</span>
