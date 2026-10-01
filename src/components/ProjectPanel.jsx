@@ -1,13 +1,11 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import './ProjectPanel.css';
 
 export default function ProjectPanel() {
   const [activeIdx, setActiveIdx] = useState(0);
   const [selectedProject, setSelectedProject] = useState(null);
   const [activeTab, setActiveTab] = useState('ui-ux');
-  const [isPlaying, setIsPlaying] = useState(true);
-  const [isDarkMode, setIsDarkMode] = useState(false);
-  const videoRef = useRef(null);
+  const [isDarkMode, setIsDarkMode] = useState(true);
 
   // ─── GitHub Repos Stack Board States ───
   const [repos, setRepos] = useState([]);
@@ -31,14 +29,11 @@ export default function ProjectPanel() {
       })
       .catch(err => {
         console.error("Sync falling back to local stack data matrix:", err);
-        
-        // Premium fallback datasets ensuring your board syncs immediately in offline/dev mode
         const mockStack = [
-          { id: 'mock-1', name: 'CodeSphere-Kernel', description: 'Sandboxed remote terminal compiler clusters executing instances via isolated execution trees.', stargazers_count: 84, forks_count: 14, language: 'Go', html_url: '#' },
-          { id: 'mock-2', name: 'PathFindr-Engine', description: 'Interactive graph node routing system optimized for multi-threading operations via Web Workers.', stargazers_count: 62, forks_count: 9, language: 'TypeScript', html_url: '#' },
-          { id: 'mock-3', name: 'Contest-Scheduler', description: 'High-throughput algorithmic event aggregation platform running Redis persistent storage layers.', stargazers_count: 45, forks_count: 5, language: 'Python', html_url: '#' },
-          { id: 'mock-4', name: 'Distributed-Cache', description: 'Lightweight key-value storage engine engineered for minimal lookup overhead across active clusters.', stargazers_count: 31, forks_count: 2, language: 'Rust', html_url: '#' },
-          { id: 'mock-5', name: 'Reactive-Canvas-UI', description: 'State synchronization engine tailored specifically for high refresh rate DOM manipulations.', stargazers_count: 27, forks_count: 4, language: 'JavaScript', html_url: '#' }
+          { id: 'mock-1', name: 'EmotiTag-Video-Anotation-Tool', description: 'High-performance desktop video annotation framework built with Tauri, Rust, and React.', stargazers_count: 32, forks_count: 6, language: 'Rust', html_url: 'https://github.com/sakib-011/EmotiTag-Video-Anotation-Tool' },
+          { id: 'mock-2', name: 'BookGrid', description: 'Smart Library Management System & Digital Reading Platform with Spring Boot backend.', stargazers_count: 24, forks_count: 5, language: 'TypeScript', html_url: 'https://github.com/sakib-011/BookGrid' },
+          { id: 'mock-3', name: 'cgpa-calculator', description: 'Academic performance tracker & university CGPA forecaster web application.', stargazers_count: 18, forks_count: 3, language: 'JavaScript', html_url: 'https://github.com/sakib-011/cgpa-calculator' },
+          { id: 'mock-4', name: 'CodeSphere-Kernel', description: 'Sandboxed remote terminal compiler clusters executing instances via isolated execution trees.', stargazers_count: 45, forks_count: 8, language: 'Go', html_url: 'https://github.com/sakib-011' }
         ];
         setRepos(mockStack);
         setLoadingRepos(false);
@@ -47,115 +42,109 @@ export default function ProjectPanel() {
 
   const projects = [
     {
-      title: 'CodeSphere IDE',
-      subtitle: 'Cloud-Based Collaborative Code Editor',
-      videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-software-developer-working-on-his-computer-34285-large.mp4',
-      tags: ['React', 'Node.js', 'WebSockets', 'Docker', 'C++ Compiler'],
-      shortDesc: 'A real-time collaborative development environment sandboxed with Docker containers for isolated code execution.',
+      title: 'emotiTag',
+      subtitle: 'Advanced Video Emotion Annotation Framework',
+      imageUrl: '/assets/emoti-tag.png',
+      deployedLink: 'https://github.com/sakib-011/EmotiTag-Video-Anotation-Tool/releases',
+      githubUrl: 'https://github.com/sakib-011/EmotiTag-Video-Anotation-Tool',
+      tags: ['Tauri v2', 'Rust', 'React', 'TypeScript', 'Axum', 'Zustand'],
+      shortDesc: 'A high-performance, desktop-native video annotation software engineered specifically for researchers and ML engineers.',
       description: {
-        overview: 'CodeSphere IDE is a real-time collaborative development environment designed for competitive programmers and teams. It allows users to write, compile, and execute code in 15+ programming languages, with integrated contest trackers and collaborative whiteboard utilities.',
+        overview: 'emotiTag is a high-performance desktop-native video annotation framework engineered for researchers, data scientists, and ML engineers. It streamlines building large-scale emotion recognition and behavioral analysis datasets from short-form video content (Reels, TikToks, Shorts) with sub-second timestamping precision.',
         features: [
-          'Real-time collaborative editing using Operational Transformation (OT) algorithms.',
-          'Isolated code execution environment sandboxed with Docker containers.',
-          'Integrated competitive programming test-case runner supporting custom input/output checks.',
-          'Live video/audio calling and chat integration for pair programming.'
+          'Sub-Second Precision Timestamping: Click and drag on timeline to set exact temporal bounds for behavioral events.',
+          'Dynamic Dataset Sequencing: Automatically assigns sequential JSON IDs (e.g. Dataset_001, Dataset_002) for data integrity.',
+          'Cross-Platform Source Tracking: Automatically logs origin platform (YouTube, TikTok, Facebook) for every annotated video.',
+          'Native OS Acceleration: Built on Tauri v2 & Rust Axum HTTP server for hardware-accelerated playback of high-res MP4/WebM files.',
+          'Standardized Bulk Export: Directly exports machine-readable JSON files ready for PyTorch, TensorFlow, and Pandas pipelines.'
         ],
-        challenges: 'Handling concurrent edits without merge conflicts and executing arbitrary code safely within 1.0 second execution limits. Solved using shared WebSockets, redis queues, and strict CPU/Memory quotas inside Docker.'
+        challenges: 'Bypassing browser-based media buffer bottlenecks and preventing memory leaks during continuous playback of high-resolution video corpora. Solved with a custom Axum HTTP streaming server running on a native Rust background worker inside Tauri.'
       },
       uiUx: {
-        fonts: 'JetBrains Mono for editor, Inter for dashboard interface.',
-        colors: ['#0F172A', '#38BDF8', '#10B981', '#F1F5F9'],
-        philosophy: 'A ultra-minimalist developer workspace. Elements fade out during typing to maximize focus.',
-        accessibility: 'Fully WCAG compliant, keyboard-only navigation supported.'
+        fonts: 'Inter, JetBrains Mono for timestamp metrics.',
+        colors: ['#0F172A', '#6366F1', '#EC4899', '#10B981'],
+        philosophy: 'Distraction-free academic dark mode interface engineered for high-efficiency data labeling workflows.',
+        accessibility: 'Keyboard shortcuts for frame stepping and high contrast timeline event bounds.'
       },
       algorithms: {
-        structures: 'Segment Trees, Trie Data Structure, OT Queue.',
-        details: 'Autocomplete powered by a compressed Trie querying in O(L) time. Document edits use an OT queue ensuring convergence.'
+        structures: 'Axum Async Streamer, Temporal Event Index Tree, Standardized JSON Schema',
+        details: 'Chunked async media streaming with sub-millisecond seek latency and linear O(1) annotation lookup.'
       }
     },
     {
-      title: 'PathFindr.io',
-      subtitle: 'Interactive Algorithm Visualizer',
-      videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-hands-of-a-programmer-typing-on-a-keyboard-40614-large.mp4',
-      tags: ['HTML5 Canvas', 'React', 'TypeScript', 'Algorithms'],
-      shortDesc: 'An interactive simulator for exploring classical graph algorithms and procedural maze generation.',
+      title: 'BookGrid',
+      subtitle: 'Modern Library Management Web Application & Spring Boot API',
+      imageUrl: '/assets/book-grid.png',
+      deployedLink: 'https://lms-011.vercel.app/',
+      githubUrl: 'https://github.com/sakib-011/BookGrid',
+      tags: ['React 18', 'TypeScript', 'Spring Boot 3.2', 'Java 21', 'PostgreSQL', 'Cloudinary', 'JWT'],
+      shortDesc: 'A state-of-the-art digital reading & library ecosystem featuring in-browser PDF e-Reading, Cloudinary cover uploads, barcode tracking, and RBAC portals.',
       description: {
-        overview: 'An interactive simulator for exploring classical graph algorithms and maze generation. It allows users to place walls, start/end nodes, and watch step-by-step visualizations.',
+        overview: 'BookGrid is a state-of-the-art, full-stack library management application powering modern university libraries. Built with React 18, TypeScript, Vite, Spring Boot 3.2, Java 21, and PostgreSQL, it offers dynamic role-tailored portals for Students, Moderators, and System Administrators with integrated in-browser PDF e-Reading, Cloudinary cover upload, physical barcode tracking, and automated circulation processing.',
         features: [
-          'Visualizes Dijkstra, A* Search, BFS, DFS, and Bidirectional Search.',
-          'Generate randomized mazes using Recursive Division and Kruskal’s algorithm.',
-          'Web Worker-based calculation thread to prevent UI freezing.'
+          'Student Portal: Multi-keyword catalog search, integrated in-browser PDF e-Reader, reservation queues, wishlist management, and digital fine receipt simulation.',
+          'Moderator Desk: Full CRUD catalog control, step-by-step Cloudinary cover image uploads, physical barcode tag generation, and loan issue/return desk.',
+          'Administrator Suite: Fine-grained RBAC administration across Student, Moderator, and Admin roles with audit logging and exportable CSV analytics.',
+          'Spring Boot 3.2 Backend: Stateless JWT Bearer token authentication, Spring Data JPA, PostgreSQL persistence, and Springdoc OpenAPI/Swagger docs.'
         ],
-        challenges: 'Animating transitions at 60fps on large grids without lag. Solved by rendering the grid on HTML5 Canvas.'
+        challenges: 'Handling concurrent book reservations and transactional return fines across multi-role user queues. Solved using database transactions with optimistic locking in PostgreSQL and optimistic UI state syncing in React.'
       },
       uiUx: {
-        fonts: 'Plus Jakarta Sans for controls, Fira Code for metrics.',
-        colors: ['#0B0F19', '#06B6D4', '#F59E0B', '#EC4899'],
-        philosophy: 'Neomorphic sliders and controllers styled with soft borders.',
-        accessibility: 'Includes colorblind-friendly color themes, ARIA tags on sliders.'
+        fonts: 'Inter, Outfit, Fira Code for inventory metrics.',
+        colors: ['#020617', '#3B82F6', '#10B981', '#F59E0B'],
+        philosophy: 'Warm academic aesthetic built with custom CSS design tokens, glassmorphic data cards, and responsive multi-portal layouts.',
+        accessibility: 'Full keyboard navigation, ARIA live region search announcements, and colorblind-friendly inventory status tags.'
       },
       algorithms: {
-        structures: 'Min-Heap Priority Queue, Adjacency List.',
-        details: 'Dijkstra and A* use a binary Min-Heap to fetch the next closest node in O(log V) time.'
+        structures: 'Stateless JWT Security Filter, B-Tree DB Indexing, Cloudinary Unsigned Pipeline, PDF Storage Ledger',
+        details: 'O(1) cached catalog lookups, thread-safe transactional loan checkouts, and non-blocking e-Book PDF stream loading.'
       }
     },
     {
-      title: 'ContestTracker',
-      subtitle: 'Competitive Programming Unified Hub',
-      videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-writing-programming-code-on-a-computer-screen-1726-large.mp4',
-      tags: ['Next.js', 'Express', 'Redis', 'Web Scraping'],
-      shortDesc: 'A unified aggregation calendar and real-time rating prediction hub.',
+      title: 'CGPA Calculator',
+      subtitle: 'Academic Performance & Grade Trajectory Analytics',
+      imageUrl: '/assets/cgpa-calculator.png',
+      deployedLink: 'https://cgpa-011.vercel.app/',
+      githubUrl: 'https://github.com/sakib-011/cgpa-calculator',
+      tags: ['React', 'JavaScript', 'CSS3', 'GitHub Pages'],
+      shortDesc: 'An intuitive web application for calculating university GPA/CGPA, forecasting target grades, and tracking progress.',
       description: {
-        overview: 'A unified calendar and statistics tracker for competitive programmers. Aggregates upcoming contests and predicts rating changes.',
+        overview: 'An interactive academic utility designed for university students to track credit hours, calculate exact CGPA trajectories, and simulate target grades required to reach desired degree classifications.',
         features: [
-          'Unified interactive calendar syncing.',
-          'Real-time rating prediction engine.',
-          'Personalized recommendations based on past failures.'
+          'Dynamic credit hour and letter grade matrix calculator.',
+          'Real-time target grade simulation and target CGPA forecaster.',
+          'Local storage persistence for instant multi-semester transcript management.',
+          'One-click transcript summary export and dark mode toggle.'
         ],
-        challenges: 'Scraping contest pages without rate-limiting. Solved using rotating proxies and Redis caching.'
+        challenges: 'Supporting custom grading scales across different university grading systems dynamically. Solved with modular grading scale configurations.'
       },
       uiUx: {
-        fonts: 'Outfit for headers, Space Grotesk for metrics.',
-        colors: ['#090D16', '#6366F1', '#10B981', '#1E293B'],
-        philosophy: 'Dashboard-centric design inspired by financial trading terminals.',
-        accessibility: 'Responsive mobile layouts and descriptive ALT tags.'
+        fonts: 'Plus Jakarta Sans, Space Grotesk',
+        colors: ['#090D16', '#8B5CF6', '#06B6D4', '#10B981'],
+        philosophy: 'Clean numerical clarity with glowing interactive sliders and responsive input tables.',
+        accessibility: 'High-visibility color contrast and screen-reader accessible input fields.'
       },
       algorithms: {
-        structures: 'Interval Trees, Hash Maps.',
-        details: 'Upcoming contests stored in an Interval Tree for rapid range queries in O(log N + K) time.'
+        structures: 'Weighted Average Accumulator, LocalStorage Sync Map',
+        details: 'O(N) weighted GPA computation with instant re-calculation on every keystroke.'
       }
     }
   ];
-
-  useEffect(() => {
-    if (videoRef.current && selectedProject) {
-      if (isPlaying) videoRef.current.play().catch(() => {});
-      else videoRef.current.pause();
-    }
-  }, [isPlaying, selectedProject]);
 
   const handleNext = () => setActiveIdx((prev) => (prev + 1) % projects.length);
   const handlePrev = () => setActiveIdx((prev) => (prev - 1 + projects.length) % projects.length);
 
   // ─── ENDLESS LOOP GENERATION ALGORITHM ───
-  // Dynamically fills rows to ensure the marquee content is wide enough to loop infinitely without stopping
   const buildInfiniteTrack = (items, oddRow) => {
     if (!items || items.length === 0) return [];
-    
-    // Split baseline array into two tracks
     const midIdx = Math.ceil(items.length / 2);
     const baselineSegment = oddRow ? items.slice(0, midIdx) : items.slice(midIdx);
-    
     if (baselineSegment.length === 0) return [];
 
-    // Duplicate segment sets until there are at least 15 items per row 
-    // This makes the element track wide enough to prevent "empty end snapping" bugs on 4K/1080p viewports
     let outputTrack = [...baselineSegment];
     while (outputTrack.length < 15) {
       outputTrack = [...outputTrack, ...baselineSegment];
     }
-    
-    // Double the final string array right at the end to allow flawless 0% to -50% CSS transforms
     return [...outputTrack, ...outputTrack];
   };
 
@@ -191,12 +180,11 @@ export default function ProjectPanel() {
 
   return (
     <section id="projects" className={`projects-section ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
-      
       <div className="container">
         {!selectedProject ? (
           <div className="carousel-stage animate-fade-in">
             <h2 className="section-title">Project Showcase</h2>
-            <p className="section-subtitle">Browse through my digital engineering workshop. Click a center card to drill down.</p>
+            <p className="section-subtitle">Browse through my digital engineering workshop. Click a center card to inspect details.</p>
 
             <div className="carousel-view-container">
               <button className="nav-arrow left" onClick={handlePrev} aria-label="Previous Project">
@@ -214,14 +202,28 @@ export default function ProjectPanel() {
                   return (
                     <div key={proj.title} className={cardClass} onClick={() => offset === 0 && setSelectedProject(proj)}>
                       <div className="card-mock-media">
-                        <span className="media-abstract-icon">⚡</span>
+                        <img src={proj.imageUrl} alt={proj.title} className="card-mock-img" />
                       </div>
                       <div className="card-meta">
                         <span className="card-subtitle">{proj.subtitle}</span>
                         <h3 className="card-title">{proj.title}</h3>
                         <p className="card-short-desc">{proj.shortDesc}</p>
-                        <div className="card-tags-strip">
-                          {proj.tags.slice(0, 3).map(t => <span key={t} className="mini-tag">{t}</span>)}
+                        
+                        <div className="card-action-bar">
+                          <div className="card-tags-strip">
+                            {proj.tags.slice(0, 3).map(t => <span key={t} className="mini-tag">{t}</span>)}
+                          </div>
+                          {proj.deployedLink && (
+                            <a 
+                              href={proj.deployedLink} 
+                              target="_blank" 
+                              rel="noopener noreferrer" 
+                              className="mini-deploy-btn"
+                              onClick={(e) => e.stopPropagation()}
+                            >
+                              🚀 Live Link
+                            </a>
+                          )}
                         </div>
                       </div>
                     </div>
@@ -256,13 +258,27 @@ export default function ProjectPanel() {
                   <span className="frame-dot frame-yellow"></span>
                   <span className="frame-dot frame-green"></span>
                 </div>
-                <div className="frame-address-bar">https://sakib.dev/vault/{selectedProject.title.toLowerCase()}</div>
+                <div className="frame-address-bar">
+                  <a href={selectedProject.deployedLink || selectedProject.githubUrl} target="_blank" rel="noopener noreferrer">
+                    {selectedProject.deployedLink || selectedProject.githubUrl}
+                  </a>
+                </div>
+                <div className="frame-action-links">
+                  {selectedProject.deployedLink && (
+                    <a href={selectedProject.deployedLink} target="_blank" rel="noopener noreferrer" className="frame-btn btn-deploy">
+                      🚀 Live Demo / Release
+                    </a>
+                  )}
+                  {selectedProject.githubUrl && (
+                    <a href={selectedProject.githubUrl} target="_blank" rel="noopener noreferrer" className="frame-btn btn-github">
+                      🐙 GitHub Repo
+                    </a>
+                  )}
+                </div>
               </div>
-              <div className="hero-video-wrapper">
-                <video ref={videoRef} src={selectedProject.videoUrl} loop muted playsInline autoPlay />
-                <button className="floating-play-pause" onClick={() => setIsPlaying(!isPlaying)}>
-                  {isPlaying ? 'PAUSE WALKTHROUGH' : 'PLAY WALKTHROUGH'}
-                </button>
+
+              <div className="hero-image-wrapper">
+                <img src={selectedProject.imageUrl} alt={selectedProject.title} className="hero-showcase-img" />
               </div>
             </div>
 
@@ -271,13 +287,26 @@ export default function ProjectPanel() {
                 <div className="tags-wrapper">
                   {selectedProject.tags.map(t => <span key={t} className="tech-badge">{t}</span>)}
                 </div>
-                <h3 className="bento-box-title">System Architecture</h3>
+                <h3 className="bento-box-title">{selectedProject.title} — System Architecture</h3>
                 <p className="bento-box-text">{selectedProject.description.overview}</p>
                 
                 <h4 className="sub-box-title">Key Core Production Features</h4>
                 <ul className="bento-bullet-list">
                   {selectedProject.description.features.map((f, i) => <li key={i}>{f}</li>)}
                 </ul>
+
+                <div className="bento-links-bar">
+                  {selectedProject.deployedLink && (
+                    <a href={selectedProject.deployedLink} target="_blank" rel="noopener noreferrer" className="bento-action-btn primary">
+                      🚀 Visit Deployed App / Releases
+                    </a>
+                  )}
+                  {selectedProject.githubUrl && (
+                    <a href={selectedProject.githubUrl} target="_blank" rel="noopener noreferrer" className="bento-action-btn secondary">
+                      🐙 Source Code on GitHub
+                    </a>
+                  )}
+                </div>
               </div>
 
               <div className="bento-box dynamic-details-box">
@@ -307,7 +336,7 @@ export default function ProjectPanel() {
                       <p className="bento-box-text"><strong>Core Structures:</strong> <code className="inline-code-accent">{selectedProject.algorithms.structures}</code></p>
                       <p className="bento-box-text"><strong>Implementation Rules:</strong> {selectedProject.algorithms.details}</p>
                       <div className="bento-terminal-mock">
-                        <pre>{`{\n  "engine": "V8 Sandbox Execution",\n  "cache_layer": "Redis Distributed",\n  "latency_target": "< 50ms"\n}`}</pre>
+                        <pre>{`{\n  "project": "${selectedProject.title}",\n  "status": "Deployed & Verified",\n  "deployed_url": "${selectedProject.deployedLink}"\n}`}</pre>
                       </div>
                     </div>
                   )}
@@ -323,7 +352,7 @@ export default function ProjectPanel() {
         )}
       </div>
 
-      {/* ─── GitHub Stack Board (Sits Completely Outside Container Bounds for Seamless desktop scaling) ─── */}
+      {/* ─── GitHub Stack Board ─── */}
       <div className="github-marquee-section">
         <h2 className="gh-section-title">Open Source Repositories</h2>
         <p className="gh-section-subtitle">Continuous live streams of my public codebases</p>
@@ -332,14 +361,12 @@ export default function ProjectPanel() {
           <div className="gh-loading">Establishing handshake with GitHub cluster API...</div>
         ) : (
           <div className="marquee-container">
-            {/* Row 1: Endlessly scrolls Left */}
             <div className="marquee-track track-left">
               <div className="marquee-content">
                 {row1Repos.map((repo, idx) => renderRepoCard(repo, `track1-item-${idx}`))}
               </div>
             </div>
 
-            {/* Row 2: Endlessly scrolls Right */}
             <div className="marquee-track track-right">
               <div className="marquee-content">
                 {row2Repos.map((repo, idx) => renderRepoCard(repo, `track2-item-${idx}`))}
@@ -348,7 +375,6 @@ export default function ProjectPanel() {
           </div>
         )}
       </div>
-
     </section>
   );
 }
