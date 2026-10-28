@@ -48,7 +48,7 @@ export default function Footer() {
 
         <div className="footer-bottom">
           <p className="footer-copyright">
-            &copy; {currentYear} Sakib Shourov. All rights reserved. Designed with precision, built with React.
+            &copy; {currentYear} Sakib. All rights reserved. Designed with precision, built with React.
           </p>
         </div>
       </div>

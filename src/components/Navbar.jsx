@@ -84,7 +84,7 @@ export default function Navbar({ isDark, setIsDark }) {
             )}
           </button>
 
-          <a href="/assets/Sakib_Shourov_Resume.pdf" className="resume-btn" download onClick={handleResumeDownload}>
+          <a href="/assets/Sakib_Resume.pdf" className="resume-btn" download onClick={handleResumeDownload}>
             <span>Resume</span>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
@@ -134,7 +134,7 @@ export default function Navbar({ isDark, setIsDark }) {
               {link.name}
             </a>
           ))}
-          <a href="/assets/Sakib_Shourov_Resume.pdf" className="mobile-resume-btn" onClick={handleResumeDownload} target="_blank" rel="noopener noreferrer">
+          <a href="/assets/Sakib_Resume.pdf" className="mobile-resume-btn" onClick={handleResumeDownload} target="_blank" rel="noopener noreferrer">
             <span>Resume</span>
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
